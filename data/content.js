@@ -56,7 +56,7 @@ const PROJECTS = [
   title:"Enigma Machine Replica", outcome:"Rotor stepping, patch panel, and lamp board, all designed from scratch.",
   summary:"A mechanical and electrical replica of the Enigma cipher machine, designed in Fusion360 and 3D printed.",
   image:"images/enigma.jpg", role:"Sole designer", tools:"Fusion360, 3D printing", team:"Solo",
-  stats:{printedcomponents:"100", Totalcomponents:"100", TimeSpent:"6 months"},
+  stats:{"3D-printed components":"100", "Total components":"100", "Time Spent":"6 months"},
   problem:"Reproduce the World War II Enigma's behavior as accurately and faithfully as possible with working mechanisms: stepping rotors, a keyboard, a plugboard, and a lamp board.",
   contribution:["Designed each mechanism in Fusion360, with manufacturing and assembly in mind.","Built an analytical kinematic model to verify the geometry of stepping wheels and pawls.","Iterated countless times both virtually and with physical parts.", "Integrated with other components, such as: pogo pins, banana plugs, and lightbulbs"],
   process:[
