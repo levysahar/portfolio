@@ -52,4 +52,4 @@ resume:()=>{document.title='Resume - '+SITE.name;
  return `<section class="wrap sec"><h1>Resume</h1><p><a class="btn pri" href="${SITE.resume}" download>Download PDF</a></p><iframe class="pdf" src="${SITE.resume}" title="Resume PDF"></iframe></section>`}
 };
 document.getElementById('app').innerHTML=R[page]();
-if(document.querySelector('model-viewer')){const s=document.createElement('script');s.type='module';s.src='https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';document.head.append(s)}
+if(document.querySelector('model-viewer')){const s=document.createElement('script');s.type='module';s.src='https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';document.head.append(s)};
