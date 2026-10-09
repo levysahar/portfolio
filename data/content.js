@@ -85,7 +85,7 @@ const PROJECTS = [
 { slug:"finger-actuator", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven servo-actuated tendons.",
-  image:"images/hand.jpg", role:"Sole designer", tools:"Arduino Uno, Python, Fusion 360, 3-D Printer",
+  image:"images/hand.jpg", role:"Sole designer", tools:"Arduino, Python, Fusion 360, 3-D Printer",
   stats:{"3D-printed components":"100", "Total components":"100", "Time Spent":"6 months"},
   problem:"Motivation",
   contribution:["A primarily 3D-printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"],

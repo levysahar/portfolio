@@ -2,6 +2,7 @@ const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
 const fig=(s,alt,r)=>{
+ if(Array.isArray(s))return `<div class="multi">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
  if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
  const o=typeof s==='string'?{src:s}:(s||{}),x=o.x??50,y=o.y??50;
  return `<figure class="ph" style="aspect-ratio:${o.ratio||r}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" style="object-position:${x}% ${y}%;transform-origin:${x}% ${y}%;transform:scale(${o.zoom||1})" onerror="this.remove()">`:''}</figure>`};
@@ -14,12 +15,12 @@ document.getElementById('ft').innerHTML=`<div class="wrap"><a href="mailto:${SIT
 
 /* Project templates: which fields show, in order, and their headings. Edit or add your own. */
 const TPL={
- flagship:[["problem","The motivation"],["contribution","What it does:"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
+ flagship:[["problem","The problem"],["contribution","My contribution"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
  team:[["problem","The problem"],["contribution","My contribution"],["process","How we built it"],["result","Result"],["change","What I would change"]],
  personal:[["what","What it does"],["specs","Key specs"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
 const step=(s,i)=>`<div class="step${i%2?' r':''}"><div><h3>${s.h}</h3><p>${s.p||''}</p></div>${fig(s.image,s.h,D.step)}</div>`;
-const body=v=>typeof v==='string'?`<p>${v}</p>`:typeof v[0]==='string'?ul(v):v.map(step).join('');
-const sec=(h,v)=>`<section class="blk${typeof v==='object'&&typeof v[0]==='object'?' full':''}"><h2>${h}</h2>${body(v)}</section>`;
+const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
+const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${t&&typeof t[0]==='object'?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}</section>`};
 const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
 
 const R={
@@ -37,9 +38,9 @@ project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.
  const cells=[['Role',p.role],['Timeline',p.year],['Tools',p.tools],['Team',p.team]].concat(Object.entries(p.stats||{})).filter(x=>x[1]);
  return `<article class="wrap wx sec"><a class="back" href="work.html">All work</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${p.status?`<p><span class="status">${p.status}</span></p>`:''}${fig(p.hero||p.image,p.title,D.hero)}
  <dl class="tb">${cells.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl>
- ${(TPL[p.type]||[]).filter(t=>p[t[0]]).map(t=>sec(t[1],p[t[0]])).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
- ${p.gallery?`<section class="blk full"><h2>Gallery</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
- ${p.drops?`<section class="blk full"><h2>Details and files</h2>${p.drops.map(drop).join('')}</section>`:''}
+ ${(TPL[p.type]||[]).filter(t=>p[t[0]]).map(t=>sec((p.titles||{})[t[0]]||t[1],p[t[0]])).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
+ ${p.gallery?`<section class="blk full"><h2>${(p.titles||{}).gallery||'Gallery'}</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
+ ${p.drops?`<section class="blk full"><h2>${(p.titles||{}).drops||'Details and files'}</h2>${p.drops.map(drop).join('')}</section>`:''}
  <div class="pn">${pv?`<a class="btn" href="project.html?p=${pv.slug}">Previous: ${pv.title}</a>`:'<span></span>'}${nx?`<a class="btn pri" href="project.html?p=${nx.slug}">Next: ${nx.title}</a>`:'<span></span>'}</div></article>`},
 
 fab:()=>{document.title='Fabrication - '+SITE.name;
@@ -52,4 +53,4 @@ resume:()=>{document.title='Resume - '+SITE.name;
  return `<section class="wrap sec"><h1>Resume</h1><p><a class="btn pri" href="${SITE.resume}" download>Download PDF</a></p><iframe class="pdf" src="${SITE.resume}" title="Resume PDF"></iframe></section>`}
 };
 document.getElementById('app').innerHTML=R[page]();
-if(document.querySelector('model-viewer')){const s=document.createElement('script');s.type='module';s.src='https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';document.head.append(s)};
+if(document.querySelector('model-viewer')){const s=document.createElement('script');s.type='module';s.src='https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';document.head.append(s)}
