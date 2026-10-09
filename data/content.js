@@ -102,7 +102,7 @@ const PROJECTS = [
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed patterns cast in bronze and hand finished.",
   summary:"A start-to-finish process for making rings: design, resin print, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", y:10}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
+  image:{src:"images/casting.jpg", y:40}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
   what:"Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish.",
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
