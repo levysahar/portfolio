@@ -14,7 +14,7 @@ document.getElementById('ft').innerHTML=`<div class="wrap"><a href="mailto:${SIT
 
 /* Project templates: which fields show, in order, and their headings. Edit or add your own. */
 const TPL={
- flagship:[["problem","The problem"],["contribution","My contribution"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
+ flagship:[["problem","The motivation"],["contribution","What it does:"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
  team:[["problem","The problem"],["contribution","My contribution"],["process","How we built it"],["result","Result"],["change","What I would change"]],
  personal:[["what","What it does"],["specs","Key specs"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
 const step=(s,i)=>`<div class="step${i%2?' r':''}"><div><h3>${s.h}</h3><p>${s.p||''}</p></div>${fig(s.image,s.h,D.step)}</div>`;

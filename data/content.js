@@ -86,9 +86,16 @@ const PROJECTS = [
   title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven servo-actuated tendons.",
   image:"images/hand.jpg", role:"Sole designer", tools:"Arduino Uno, Python, Fusion 360, 3-D Printer",
-  what:"A primarily 3D-printed analog of a human hand with realistic joints and degrees of freedom, with servos actuating multiple tendon-like cables per finger controlled either through a digital GUI or by emulating a worn glove",
   stats:{"3D-printed components":"100", "Total components":"100", "Time Spent":"6 months"},
-  challenge:"friction, dfma, scope, motor/servo selection",
+  problem:"Motivation",
+  contribution:["A primarily 3D-printed analog of a human hand with realistic joints and degrees of freedom, with servos actuating multiple tendon-like cables per finger controlled either through a digital GUI or by emulating a worn glove","Built an motion study model to verify the geometry of stepping wheels and pawls.","Iterated countless times both virtually and with physical parts.", "Integrated with other components, such as: pogo pins, banana plugs, and lightbulbs"],
+  process:[
+   {h:"Inital 1-finger design",p:"A keypress drives a linkage that moves a spring-loaded pawl against a 26-tooth ratchet wheel (radius about 71 mm).",image:"images/enigma-rotor.jpg"},
+   {h:"Initial software and GUI",p:"3D-printed housings with a spring contact triggered by plug insertion depth, so each letter bridges to itself until a plug is inserted. Banana plugs give useful contact travel.",image:"images/enigma-panel.jpg"},
+   {h:"5 finger integration and wrist design",p:"Battery-powered lamps with a mechanical SPDT switch under each key, made from copper strips.",image:"images/enigma-lamps.jpg"}],
+  analysis:"The SolidWorks motion study showed the pawl clipping through the wheel. The cause was a contact exponent set far too high plus an unconstrained pivot, which led me to a kinematic position model of the pawl tip against the main pivot.",
+  result:"[Fill in once built.]", change:"[Fill in once built.]",
+  gallery:["images/hand-1.jpg","images/hand-2.jpg"],
   drops:[{h:"Parts list",table:[["Part","Qty"]]}]},
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
