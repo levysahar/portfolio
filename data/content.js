@@ -58,7 +58,7 @@ const PROJECTS = [
 { slug:"iam3d-rover", type:"team", kind:"team", featured:true, year:"2025-present",
   title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas.",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
-  image:"images/rover.jpg", role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
+  image:{src:"images/rover.jpg", y:50, zoom: 0.8}, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
@@ -102,7 +102,7 @@ const PROJECTS = [
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed patterns cast in bronze and hand finished.",
   summary:"A start-to-finish process for making rings: design, resin print, bronze casting, polishing.",
-  image:"images/rings.jpg", role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
+  image:"images/casting.jpg", role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
   what:"Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish.",
   change:"Next: a benchtop lathe with a ring mandrel for turned rings in titanium and niobium."},
 
