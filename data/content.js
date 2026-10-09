@@ -33,10 +33,10 @@ const SITE = {
    Any field you leave out is simply skipped. Full field guide: docs/GUIDE.md
    Images can be "images/a.jpg" or {src, ratio, x, y, zoom} or {model:"models/a.glb"}. */
 const PROJECTS = [
-{ slug:"banshee-uav", type:"team", kind:"team", featured:true, year:"2025-present", status:"In progress",
+{ slug:"banshee-uav", type:"team", kind:"team", featured:false, year:"2025-present",
   title:"Banshee VTOL UAV", outcome:"Structural fabrication for a VTOL UAV built with industry sponsors.",
   summary:"Carbon fiber and machined structural components for a vertical takeoff and landing unmanned aircraft.",
-  image:"images/banshee.jpg", role:"Fabrication, [subteam]", tools:"Carbon fiber, resin infusion, machining", team:"[team size]",
+  image:"images/banshee.jpg", role:"Manufacturing", tools:"Carbon fiber, resin infusion, machining", team:"[team size]",
   problem:"[What the aircraft must do and the structural requirements you worked to.]",
   contribution:["Fabricate structural components using resin-infused carbon fiber layup: [N parts / subassemblies].","[Mold prep, vacuum bagging, trimming, finishing: whichever you did.]","Coordinate with aerodynamics, avionics, and flight test subteams to check fit and mass budget."],
   process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/banshee-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/banshee-2.jpg"}],
@@ -44,10 +44,21 @@ const PROJECTS = [
   gallery:["images/banshee-3.jpg","images/banshee-4.jpg"],
   drops:[{h:"Sponsors",p:"Team sponsored by Lockheed Martin, Southern California Edison, Air Force Research Laboratory, Robotis, and General Atomics."}]},
 
+{ slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
+  title:"Liquid Rocket Lab Additive Manufacturing Project", outcome:"Verification of 3-D printed metal parts",
+  summary:"Printing and then verifying material properties of metal 3-D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
+  image:"images/lrl.jpg", role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
+  problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
+  contribution:["Model testing samples and develop procedures adherent to ASTM specifications.","[Mold prep, vacuum bagging, trimming, finishing: whichever you did.]","Coordinate with aerodynamics, avionics, and flight test subteams to check fit and mass budget."],
+  process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/banshee-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
+  result:"[Twice yearly reports with presentations to sponsors.]",
+  gallery:["images/lrl-3.jpg","images/lrl-4.jpg"],
+  drops:[{h:"Sponsors",p:"Team sponsored by Lockheed Martin, Southern California Edison, Air Force Research Laboratory, Robotis, and General Atomics."}]},
+
 { slug:"iam3d-rover", type:"team", kind:"team", featured:true, year:"2025-present",
-  title:"IAM3D Rover Chassis", outcome:"Part of the team that took 1st place at ASME eFX Dallas.",
+  title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas.",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
-  image:"images/rover.jpg", role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"[team size]", stats:{Result:"1st place, eFX Dallas"},
+  image:"images/rover.jpg", role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
