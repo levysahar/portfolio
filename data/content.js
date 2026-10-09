@@ -82,6 +82,7 @@ const PROJECTS = [
   drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]},
    {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]},
 
+   
 { slug:"biomimetic-hannd", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven servo-actuated tendons.",
