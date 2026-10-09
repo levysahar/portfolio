@@ -70,7 +70,7 @@ const PROJECTS = [
   summary:"A mechanical and electrical replica of the Enigma cipher machine, designed in Fusion360 and 3D printed.",
   image:"images/enigma.jpg", role:"Sole designer", tools:"Fusion360, 3D printing",
   stats:{"3D-printed components":"100", "Total components":"100"},
-  problem:{h:"The motivation", bullets:true,  text:"Reproduce the World War II Enigma's behavior as accurately as possible with working mechanisms: stepping rotors, a keyboard, a plugboard, and a lamp board."},
+  problem:{h:"The motivation", bullets:false,  text:"Reproduce the World War II Enigma's behavior as accurately as possible with working mechanisms: stepping rotors, a keyboard, a plugboard, and a lamp board."},
   contribution:{h:"What I built", bullets:true,  text:["Designed each mechanism in Fusion360 with manufacturing and assembly in mind.","Built an motion study model to verify the geometry of stepping wheels and pawls.","Iterated countless times both virtually and with physical parts.", "Integrated with other components, such as: pogo pins, banana plugs, and lightbulbs"]},
   process:[
    {h:"Rotor stepping",p:"A keypress drives a linkage that moves a spring-loaded pawl against a 26-tooth ratchet wheel (radius about 71 mm).",image:"images/enigma-rotor.jpg"},
@@ -115,7 +115,7 @@ const PROJECTS = [
 { slug:"lock-projects", type:"personal", kind:"personal", year:"2025",
   title:"Tumbler Locks", outcome:"Several tumbler lock variants, each with a different mechanism.",
   summary:"Multiple versions of tumbler locks designed in different ways.",
-  image:"images/locks.jpg", role:"Designer", tools:"CAD, 3D printing", team:"Solo",
+  image:"images/locks.jpg", role:"Designer", tools:"CAD, 3D printing",
   what:"[One line per variant: how its mechanism differs.]"},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
