@@ -70,8 +70,8 @@ const PROJECTS = [
   summary:"A mechanical and electrical replica of the Enigma cipher machine, designed in Fusion360 and 3D printed.",
   image:"images/enigma.jpg", role:"Sole designer", tools:"Fusion360, 3D printing",
   stats:{"3D-printed components":"100", "Total components":"100"},
-  problem:[h:"The motivation", bullets:true,  text:"Reproduce the World War II Enigma's behavior as accurately as possible with working mechanisms: stepping rotors, a keyboard, a plugboard, and a lamp board."],
-  contribution:[h:"What I built", bullets:true,  text:"Designed each mechanism in Fusion360 with manufacturing and assembly in mind.","Built an motion study model to verify the geometry of stepping wheels and pawls.","Iterated countless times both virtually and with physical parts.", "Integrated with other components, such as: pogo pins, banana plugs, and lightbulbs"],
+  problem:{h:"The motivation", bullets:true,  text:"Reproduce the World War II Enigma's behavior as accurately as possible with working mechanisms: stepping rotors, a keyboard, a plugboard, and a lamp board."},
+  contribution:{h:"What I built", bullets:true,  text:"Designed each mechanism in Fusion360 with manufacturing and assembly in mind.","Built an motion study model to verify the geometry of stepping wheels and pawls.","Iterated countless times both virtually and with physical parts.", "Integrated with other components, such as: pogo pins, banana plugs, and lightbulbs"},
   process:[
    {h:"Rotor stepping",p:"A keypress drives a linkage that moves a spring-loaded pawl against a 26-tooth ratchet wheel (radius about 71 mm).",image:"images/enigma-rotor.jpg"},
    {h:"Patch panel",p:"3D-printed housings with a spring contact triggered by plug insertion depth, so each letter bridges to itself until a plug is inserted. Banana plugs give useful contact travel.",image:"images/enigma-panel.jpg"},
@@ -82,13 +82,13 @@ const PROJECTS = [
   drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]},
    {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]},
 
-{ slug:"finger-actuator", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
+{ slug:"biomimetic-hannd", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven servo-actuated tendons.",
   image:"images/hand.jpg", role:"Sole designer", tools:"Arduino, Python, Fusion 360, 3-D Printer",
   stats:{"3D-printed components":"100", "Total components":"100"},
-  problem: [h:"The motivation", bullets:false,  text:"Motivation"],
-  contribution:[h:"The goal", bullets:true, text:"A primarily 3D-printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"],
+  problem: {h:"The motivation", bullets:false,  text:"Motivation"},
+  contribution:{h:"The goal", bullets:true, text:"A primarily 3D-printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"},
   process:[
    {h:"Inital 1-finger design",p:"A keypress drives a linkage that moves a spring-loaded pawl against a 26-tooth ratchet wheel (radius about 71 mm).",image:"images/enigma-rotor.jpg"},
    {h:"Initial software and GUI",p:"3D-printed housings with a spring contact triggered by plug insertion depth, so each letter bridges to itself until a plug is inserted. Banana plugs give useful contact travel.",image:"images/enigma-panel.jpg"},
