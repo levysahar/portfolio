@@ -62,8 +62,8 @@ const PROJECTS = [
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
-  result:"1st place at ASME eFX Dallas ([N] teams).", change:"[1-3 honest sentences.]",
-  drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}]},
+  result:"1st place at ASME eFX Dallas ([N] teams).", change:"[1-3 honest sentences.]", 
+  drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}, {h:"3D Model",image:{model:"models/rover"}}]},
 
 { slug:"enigma-replica", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Enigma Machine Replica", outcome:"Rotor stepping, patch panel, keyboard and lamp board, all designed from scratch.",
