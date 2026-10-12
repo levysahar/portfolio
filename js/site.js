@@ -1,11 +1,14 @@
+/* SITE.layout sizes become CSS variables (see docs/GUIDE.md) */
+const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
 const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
+const sz=o=>o&&o.w?`max-width:${o.w};${o.align==='left'?'margin-right':o.align==='right'?'margin-left':'margin-inline'}:auto;`:'';
 const fig=(s,alt,r)=>{
  if(Array.isArray(s))return `<div class="multi">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
- if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
+ if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r};${sz(s)}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
  const o=typeof s==='string'?{src:s}:(s||{}),x=o.x??50,y=o.y??50;
- return `<figure class="ph" style="aspect-ratio:${o.ratio||r}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" style="object-position:${x}% ${y}%;transform-origin:${x}% ${y}%;transform:scale(${o.zoom||1})" onerror="this.remove()">`:''}</figure>`};
+ return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" style="object-position:${x}% ${y}%;transform-origin:${x}% ${y}%;transform:scale(${o.zoom||1})" onerror="this.remove()">`:''}</figure>`};
 const card=p=>`<a class="card" href="project.html?p=${p.slug}">${fig(p.thumb||p.image,p.title,D.card)}<h3>${p.title}</h3>${p.outcome?`<p>${p.outcome}</p>`:''}${p.tools?`<span>${p.tools}</span>`:''}${p.year?`<span>${p.year}</span>`:''}</a>`;
 const ul=a=>`<ul>${a.map(i=>`<li>${i}</li>`).join('')}</ul>`;
 const NAV=[["Work","work.html","work"],["Fabrication","fabrication.html","fab"],["About","about.html","about"],["Resume","resume.html","resume"]];
@@ -20,8 +23,8 @@ const TPL={
  personal:[["what","What it does"],["specs","Key specs"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
 const step=(s,i)=>`<div class="step${i%2?' r':''}"><div><h3>${s.h}</h3><p>${s.p||''}</p></div>${fig(s.image,s.h,D.step)}</div>`;
 const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
-const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${t&&typeof t[0]==='object'?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}</section>`};
-const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
+const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step):''}</section>`};
+const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
 
 const R={
 home:()=>{document.title=SITE.name+' - Portfolio';
