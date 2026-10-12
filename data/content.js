@@ -62,8 +62,8 @@ const PROJECTS = [
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
-  result:"1st place at ASME eFX Dallas ([N] teams).", change:"[1-3 honest sentences.]", 
-  drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}, {h:"3D Model",image:{model:"models/rover"}}]},
+  result:[{ h:"Result" p:"First place at EFX Dallas of 20 teams.",model:"models/rover.glb", ratio:"1/1"}], change:"[1-3 honest sentences.]", 
+  drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}, {h:"3D Model",image:{model:"models/rover.glb"}}]},
 
 { slug:"enigma-replica", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Enigma Machine Replica", outcome:"Rotor stepping, patch panel, keyboard and lamp board, all designed from scratch.",
@@ -79,7 +79,7 @@ const PROJECTS = [
    {h:"Lamp Board",p:"Battery-powered lamps with a mechanical SPDT switch under each key, made from copper strips.",image:"images/enigma-lamps.jpg"}],
   analysis:"The SolidWorks motion study showed the pawl clipping through the wheel. The cause was a contact exponent set far too high plus an unconstrained pivot, which led me to a kinematic position model of the pawl tip against the main pivot.",
   result:"[Fill in once built.]", change:"[Fill in once built.]",
-  gallery:["images/enigma-1.jpg","images/enigma-2.jpg", image:{model:"models/enigma.glb",ratio:"1/1"}],
+  gallery:["images/enigma-1.jpg","images/enigma-2.jpg", {model:"models/enigma.glb",ratio:"1/1"}],
   drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]},
    {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]},
 
