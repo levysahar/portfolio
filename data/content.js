@@ -47,7 +47,7 @@ const PROJECTS = [
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
   title:"Liquid Rocket Lab", outcome:"Verification of 3-D printed metal parts",
   summary:"Printing and then verifying material properties of metal 3-D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
-  image:{src:"images/lrl.jpg", ratio:"1/1"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
+  image:{src:"images/lrl.jpg", ratio:"1/1", w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
   problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
   contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
   process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
@@ -62,7 +62,7 @@ const PROJECTS = [
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
-  result:[{ h:"Result", p:"First place at EFX Dallas of 20 teams.", image:{model:"models/rover.glb", ratio:"1/1"}}], change:"[1-3 honest sentences.]", 
+  result:[{ h:"Result", p:"First place at eFX Dallas of 20 teams.", image:{model:"models/rover.glb", ratio:"1/1"}}], change:"[1-3 honest sentences.]", 
   drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}]},
 
 { slug:"enigma-replica", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
