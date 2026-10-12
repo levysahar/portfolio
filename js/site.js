@@ -8,8 +8,10 @@ const fig=(s,alt,r)=>{
  if(Array.isArray(s))return `<div class="multi">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
  if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r};${sz(s)}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
  const o=typeof s==='string'?{src:s}:(s||{}),x=o.x??50,y=o.y??50;
- return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" style="object-position:${x}% ${y}%;transform-origin:${x}% ${y}%;transform:scale(${o.zoom||1})" onerror="this.remove()">`:''}</figure>`};
-const card=p=>`<a class="card" href="project.html?p=${p.slug}">${fig(p.thumb||p.image,p.title,D.card)}<h3>${p.title}</h3>${p.outcome?`<p>${p.outcome}</p>`:''}${p.tools?`<span>${p.tools}</span>`:''}${p.year?`<span>${p.year}</span>`:''}</a>`;
+ return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}${o.fit==='contain'?`background:${o.bg||'transparent'};`:''}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" style="object-fit:${o.fit||'cover'};object-position:${x}% ${y}%;transform-origin:${x}% ${y}%;transform:translate(${o.dx||0}%,${o.dy||0}%) scale(${o.zoom||1})" onerror="this.remove()">`:''}</figure>`};
+/* thumb / hero inherit from image: give only the keys that differ, e.g. thumb:{ratio:"1/1",dx:5} */
+const pick=(p,k)=>{const b=typeof p.image==='string'?{src:p.image}:p.image,v=p[k];return v===undefined?p.image:typeof v==='object'&&!Array.isArray(v)&&!v.src&&!v.model?Object.assign({},b,v):v};
+const card=p=>`<a class="card" href="project.html?p=${p.slug}">${fig(pick(p,'thumb'),p.title,D.card)}<h3>${p.title}</h3>${p.outcome?`<p>${p.outcome}</p>`:''}${p.tools?`<span>${p.tools}</span>`:''}${p.year?`<span>${p.year}</span>`:''}</a>`;
 const ul=a=>`<ul>${a.map(i=>`<li>${i}</li>`).join('')}</ul>`;
 const NAV=[["Work","work.html","work"],["Fabrication","fabrication.html","fab"],["About","about.html","about"],["Resume","resume.html","resume"]];
 const cur=n=>(page===n||(page==='project'&&n==='work'))?' aria-current="page"':'';
@@ -39,7 +41,7 @@ work:()=>{const k=q.get('k'),f=[['All',''],['Team','team'],['Personal','personal
 project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.get('p'))||L[0],i=L.indexOf(p),pv=L[i-1],nx=L[i+1];
  document.title=p.title+' - '+SITE.name;
  const cells=[['Role',p.role],['Timeline',p.year],['Tools',p.tools],['Team',p.team]].concat(Object.entries(p.stats||{})).filter(x=>x[1]);
- return `<article class="wrap wx sec"><a class="back" href="work.html">All work</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${p.status?`<p><span class="status">${p.status}</span></p>`:''}${fig(p.hero||p.image,p.title,D.hero)}
+ return `<article class="wrap wx sec"><a class="back" href="work.html">All work</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${p.status?`<p><span class="status">${p.status}</span></p>`:''}${fig(pick(p,'hero'),p.title,D.hero)}
  <dl class="tb">${cells.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl>
  ${(TPL[p.type]||[]).filter(t=>p[t[0]]).map(t=>sec((p.titles||{})[t[0]]||t[1],p[t[0]])).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
  ${p.gallery?`<section class="blk full"><h2>${(p.titles||{}).gallery||'Gallery'}</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}

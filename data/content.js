@@ -18,7 +18,7 @@ const SITE = {
     {h:"CAD and design", t:"SolidWorks (assemblies, motion studies), Fusion 360, mechanism and structural design."},
     {h:"Fabrication", t:"Carbon fiber layup and resin infusion, 3D printing, bronze casting, silicone molding, manual mill and lathe."},
     {h:"Electronics and code", t:"Arduino, ESP32, Python, sensor integration and motor control."}
-  ],
+  ], 
   about: {
     bio: ["[3-4 sentences: what you build, what drew you to it, and what you are looking for next.]"],
     education: ["Cal Poly Pomona, B.S. Mechanical Engineering, [expected graduation]","Irvine Valley College, Design, Model Making and Rapid Prototyping, 2024-2025"],
@@ -47,7 +47,7 @@ const PROJECTS = [
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
   title:"Liquid Rocket Lab", outcome:"Verification of 3-D printed metal parts",
   summary:"Printing and then verifying material properties of metal 3-D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
-  image:{src:"images/lrl.jpg", ratio:"1/1", w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
+  image:{src:"images/lrl.jpg", ratio:"1/1", w:"80%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
   problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
   contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
   process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
@@ -104,7 +104,7 @@ const PROJECTS = [
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed patterns cast in bronze and hand finished.",
   summary:"A start-to-finish process for making rings: design, resin print, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", y:60}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
+  image:{src:"images/casting.jpg", dy:60}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
   what:"Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish.",
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
