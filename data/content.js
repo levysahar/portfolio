@@ -125,8 +125,8 @@ const PROJECTS = [
   summary:"Multiple versions of tumbler locks designed in different ways.",
   image:"images/locks.jpg", role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
   process:{h:"Iterations", text:[
-    {h:"First Design", p:"description", image:"images/lock-1"}
-    {h:"Second Design", p:"description", image:"images/lock-2"}
+    {h:"First Design", p:"description", image:"images/lock-1"},
+    {h:"Second Design", p:"description", image:"images/lock-2"},
     {h:"Third Design", p:"description", image:"images/lock-3"}
   ]}},
 
