@@ -103,10 +103,10 @@ const PROJECTS = [
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed patterns cast in bronze and hand finished.",
-  summary:"A start-to-finish process for making rings: resin print, bronze casting, polishing.",
+  summary:"A start-to-finish process for making a ring: resin print, bronze casting, polishing.",
   image:{src:"images/casting.jpg", dy:0}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
-  what:{h: "What I made", text:["Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
-    how:[
+  what:{h: "What I made", bullets:false, text:["Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
+    process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2"]},
    {h:"Wax treeing",p:"temporary",image:"images/hand-gui.jpg"},
    {h:"Investment",p:"temporary",image:"images/hand-wrist.jpg"},
