@@ -110,7 +110,7 @@ const PROJECTS = [
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2"]},
    {h:"Wax treeing",p:"temporary",image:"images/hand-gui.jpg"},
    {h:"Investment",p:"temporary",image:"images/hand-wrist.jpg"},
-   {h:"Casting",p:"temporary",image:"images/hand-glove.jpg"}],
+   {h:"Casting",p:"temporary",image:"images/hand-glove.jpg"},
    {h:"Processing",p:"temporary",image:"images/hand-glove.jpg"}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
