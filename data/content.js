@@ -122,11 +122,11 @@ const PROJECTS = [
 { slug:"lock-projects", type:"personal", kind:"personal", year:"2025",
   title:"Tumbler Locks", outcome:"Several tumbler lock variants, each with a different mechanism.",
   summary:"Multiple versions of tumbler locks designed in different ways.",
-  image:"images/locks.jpg", role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
+  image:"images/lock-2.jpg", role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
   process:{h:"Iterations", text:[
-    {h:"First Design", p:"description", image:"images/lock-1"},
-    {h:"Second Design", p:"description", image:"images/lock-2"},
-    {h:"Third Design", p:"description", image:"images/lock-3"}
+    {h:"First Design", p:"description", image:"images/lock-1.png"},
+    {h:"Second Design", p:"description", image:"images/lock-2.png"},
+    {h:"Third Design", p:"description", image:"images/lock-3.png"}
   ]}},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
