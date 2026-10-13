@@ -1,5 +1,5 @@
 /* SITE.layout sizes become CSS variables (see docs/GUIDE.md) */
-const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--step-min',L.stepMin]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
+const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--step-min',L.stepMin],['--fab-cols',L.fabCols]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
 const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
@@ -51,7 +51,7 @@ project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.
  <div class="pn">${pv?`<a class="btn" href="project.html?p=${pv.slug}">${T.prev}: ${pv.title}</a>`:'<span></span>'}${nx?`<a class="btn pri" href="project.html?p=${nx.slug}">${T.next}: ${nx.title}</a>`:'<span></span>'}</div></article>`},
 
 fab:()=>{document.title='Fabrication - '+SITE.name;
- return `<section class="wrap sec"><h1>${T.fab}</h1><p class="lede">${T.fabIntro}</p>${FAB.map(f=>`<section class="blk"><h2>${f.h}</h2><p>${f.t}</p>${(f.images||[]).map(m=>fig(m,f.h,D.gallery)).join('')}</section>`).join('')}</section>`},
+ return `<section class="wrap sec"><h1>${T.fab}</h1><p class="lede">${T.fabIntro}</p><div class="fabgrid">${FAB.map(f=>`<section class="blk"><h2>${f.h}</h2><p>${f.t}</p>${(f.images||[]).map(m=>fig(m,f.h,D.gallery)).join('')}</section>`).join('')}</div></section>`},
 
 about:()=>{const a=SITE.about;document.title='About - '+SITE.name;
  return `<section class="wrap sec"><h1>${T.about}</h1><div class="blk">${a.bio.map(t=>`<p>${t}</p>`).join('')}<h2>${T.education}</h2>${ul(a.education)}<h2>${T.activities}</h2>${ul(a.activities)}<h2>${T.awards}</h2>${ul(a.awards)}<h2>${T.contact}</h2><p><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.linkedin}">LinkedIn</a></p></div></section>`},
@@ -62,7 +62,7 @@ resume:()=>{document.title='Resume - '+SITE.name;
 document.getElementById('app').innerHTML=R[page]();
 if(document.querySelector('model-viewer')){const s=document.createElement('script');s.type='module';s.src='https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';document.head.append(s)}
 /* fill: make a step image as tall as its text while keeping its ratio (width = height x ratio, capped by layout.stepMax) */
-function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepMin||350);
+function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepMin||260);
  document.querySelectorAll('.step.fill').forEach(st=>{const t=st.children[0],f=st.children[1],rp=f&&f.style&&f.style.aspectRatio;
   if(innerWidth<=760||!rp||f.classList.contains('multi')){st.style.gridTemplateColumns='';return}
   const p=rp.split('/').map(Number),r=p[0]/(p[1]||1),W=st.clientWidth,rev=st.classList.contains('r'),cols=w=>rev?`${w}px minmax(0,1fr)`:`minmax(0,1fr) ${w}px`;let w=W*.5;
