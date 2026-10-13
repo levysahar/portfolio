@@ -62,7 +62,7 @@ resume:()=>{document.title='Resume - '+SITE.name;
 document.getElementById('app').innerHTML=R[page]();
 if(document.querySelector('model-viewer')){const s=document.createElement('script');s.type='module';s.src='https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js';document.head.append(s)}
 /* fill: make a step image as tall as its text while keeping its ratio (width = height x ratio, capped by layout.stepMax) */
-function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepMin||260);
+function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepMin||350);
  document.querySelectorAll('.step.fill').forEach(st=>{const t=st.children[0],f=st.children[1],rp=f&&f.style&&f.style.aspectRatio;
   if(innerWidth<=760||!rp||f.classList.contains('multi')){st.style.gridTemplateColumns='';return}
   const p=rp.split('/').map(Number),r=p[0]/(p[1]||1),W=st.clientWidth,rev=st.classList.contains('r'),cols=w=>rev?`${w}px minmax(0,1fr)`:`minmax(0,1fr) ${w}px`;let w=W*.5;

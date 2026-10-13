@@ -108,8 +108,8 @@ const PROJECTS = [
     process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2.jpg"]},
    {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:"images/ring-tree.jpg", fill:true},
-   {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:{src:"images/ring-plaster.jpg", ratio:"4/3"}, fill:true},
-   {h:"Casting",p:"temporary",image:{src:"images/ring-casting.jpg", ratio:"4/3"}, fill:true},
+   {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:"images/ring-plaster.jpg", fill:true},
+   {h:"Casting",p:"temporary",image:"images/ring-casting.jpg", fill:true},
    {h:"Processing",p:"temporary",image:["images/ring-processing.jpg","images/ring-final.jpg"], fill:true}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
