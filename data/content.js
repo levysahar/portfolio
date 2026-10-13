@@ -47,7 +47,7 @@ const PROJECTS = [
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
   title:"Liquid Rocket Lab", outcome:"Verification of 3-D printed metal parts",
   summary:"Printing and then verifying material properties of metal 3-D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
-  image:{src:"images/lrl.jpg", ratio:"1/1", w:"80%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
+  image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"50%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
   problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
   contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
   process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
@@ -103,9 +103,15 @@ const PROJECTS = [
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed patterns cast in bronze and hand finished.",
-  summary:"A start-to-finish process for making rings: design, resin print, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", dy:60}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
+  summary:"A start-to-finish process for making rings: resin print, bronze casting, polishing.",
+  image:{src:"images/casting.jpg", dy:-20}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
   what:"Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish.",
+    process:[
+   {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2"]},
+   {h:"Wax treeing",p:"temporary",image:"images/hand-gui.jpg"},
+   {h:"Investment",p:"temporary",image:"images/hand-wrist.jpg"},
+   {h:"Casting",p:"temporary",image:"images/hand-glove.jpg"}],
+   {h:"Processing",p:"temporary",image:"images/hand-glove.jpg"}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
 { slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
