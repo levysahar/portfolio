@@ -108,10 +108,10 @@ const PROJECTS = [
   what:{h: "What I made", bullets:false, text:["3D print a ring in resin, post process, attache wax sprues, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
     process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2"]},
-   {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:"images/ring-tree.jpg"},
-   {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:"images/ring-plaster.jpg"},
-   {h:"Casting",p:"temporary",image:"images/ring-casting.jpg"},
-   {h:"Processing",p:"temporary",image:"images/ring-processing.jpg"}],
+   {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:{src:"images/ring-tree.jpg", w:"60%"}},
+   {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:{src:"images/ring-plaster.jpg", w:"60%"}},
+   {h:"Casting",p:"temporary",image:{src:"images/ring-casting.jpg", w:"60%"}},
+   {h:"Processing",p:"temporary",image:{src:"images/ring-processing.jpg", w:"60%"}}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
 { slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
