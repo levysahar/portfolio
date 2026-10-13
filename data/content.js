@@ -76,7 +76,7 @@ const PROJECTS = [
    {h:"'Scrambler Assembly'",p:"A keypress drives a linkage that moves a spring-loaded pawl against a 26-tooth ratchet wheel.",image:"images/enigma-scrambler.jpg"},
    {h:"Input Board",p:"3D-printed housings with a spring contact triggered by plug insertion depth, so each letter bridges to itself until a plug is inserted.",image:"images/enigma-input.jpg"},
    {h:"Plug Board",p:"temporary.",image:"images/enigma-plug.jpg"},
-   {h:"Lamp Board",p:"temporary",
+   {h:"Lamp Board",p:"temporary"},
   result:"[Fill in once built.]", change:"[Fill in once built.]",
   gallery:["images/enigma-1.jpg","images/enigma-2.jpg", {model:"models/enigma.glb",ratio:"1/1"}],
   drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]},
