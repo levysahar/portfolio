@@ -1,5 +1,5 @@
 /* SITE.layout sizes become CSS variables (see docs/GUIDE.md) */
-const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
+const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--step-min',L.stepMin]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
 const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
@@ -25,7 +25,7 @@ const TPL={
  flagship:[["problem","The problem"],["contribution","My contribution"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
  team:[["problem","The problem"],["contribution","My contribution"],["process","How we built it"],["result","Result"],["change","What I would change"]],
  personal:[["what","What it does"],["specs","Key specs"],["process","Process"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
-const step=(s,i)=>`<div class="step${i%2?' r':''}"><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step)}</div>`;
+const step=(s,i)=>`<div class="step${i%2?' r':''}${(s.fill??L.stepFill)?' fill':''}"><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step)}</div>`;
 const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
 const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step):''}</section>`};
 const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
