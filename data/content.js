@@ -110,7 +110,7 @@ const PROJECTS = [
    {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:"images/ring-tree.jpg", fill:true},
    {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:"images/ring-plaster.jpg", fill:true},
    {h:"Casting",p:"temporary",image:"images/ring-casting.jpg", fill:true},
-   {h:"Processing",p:"temporary",image:["images/ring-processing.jpg","images/ring-final"] fill:true}],
+   {h:"Processing",p:"temporary",image:["images/ring-processing.jpg","images/ring-final"], fill:true}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
 { slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
