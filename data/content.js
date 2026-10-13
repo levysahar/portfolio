@@ -7,22 +7,22 @@
 const SITE = {
   name: "Sahar Levy",
   role: "Mechanical engineering, Cal Poly Pomona",
-  tagline: "I design and build mechanisms, composite structures, and electromechanical systems.",
+  tagline: "I design, build, test, and iterate mechanisms, electromechanical systems, and more.",
   heroImage: "images/hero.jpg",
   imageDefaults: {home:"4/3", card:"4/3", hero:"16/9", step:"4/3", gallery:"4/3"},  // width/height ratios
   email: "levysahar2007@gmail.com",
   linkedin: "https://www.linkedin.com/in/sahar-l",
-  resume: "files/resume.pdf",            // replace this PDF to update the resume
+  resume: "files/resume.pdf",         
   buttons: [["View work","work.html"],["Resume","resume.html"],["Contact","mailto:levysahar2007@gmail.com"]],
   skills: [
-    {h:"CAD and design", t:"SolidWorks (assemblies, motion studies), Fusion 360, mechanism and structural design."},
-    {h:"Fabrication", t:"Carbon fiber layup and resin infusion, 3D printing, bronze casting, silicone molding, manual mill and lathe."},
+    {h:"CAD and design", t:"SolidWorks, Fusion 360, mechanical and structural design."},
+    {h:"Fabrication", t:"3D printing, bronze casting, silicone molding, manual mill and lathe."},
     {h:"Electronics and code", t:"Arduino, ESP32, Python, sensor integration and motor control."}
   ], 
   about: {
-    bio: ["[3-4 sentences: what you build, what drew you to it, and what you are looking for next.]"],
-    education: ["Cal Poly Pomona, B.S. Mechanical Engineering, [expected graduation]","Irvine Valley College, Design, Model Making and Rapid Prototyping, 2024-2025"],
-    activities: ["Banshee UAV Team","IAM3D Competition Team","American Society of Mechanical Engineers (ASME)","SkillsUSA (Woodbridge High School)"],
+    bio: ["I'm a mechanical engineering student at Cal Poly Pomona, with experience in CAD, additive manufacturing, and shop fabrication. I contribute to the Banshee VTOL UAV team, the Liquid Rocket Lab, and the IAM3D rover team, which placed first among 20 national teams at the ASME eFX Dallas competition. I am a Gene Haas Foundation Scholarship recipient and am seeking internships and professional experience in design, manufacturing, and mechanical engineering."],
+    education: ["Cal Poly Pomona, B.S. Mechanical Engineering, Expected Graduation 2029","Irvine Valley College, Design, Model Making and Rapid Prototyping, 2024-2025"],
+    activities: ["Banshee UAV Team","IAM3D Competition Team","Liquid Rocket Lab Additive Manufacturing Project", "American Society of Mechanical Engineers (ASME)","SkillsUSA (Woodbridge High School)"],
     awards: ["1st Place, ASME eFX Dallas (2025)","Gene Haas Foundation Scholarship (2025)","SkillsUSA Gold Chapter of Distinction (2025)","SkillsUSA Automated Manufacturing Technology State Qualifier (2025)"]
   }
 };
@@ -45,8 +45,8 @@ const PROJECTS = [
   drops:[{h:"Sponsors",p:"Team sponsored by Lockheed Martin, Southern California Edison, Air Force Research Laboratory, Robotis, and General Atomics."}]},
 
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
-  title:"Liquid Rocket Lab", outcome:"Verification of 3-D printed metal parts",
-  summary:"Printing and then verifying material properties of metal 3-D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
+  title:"Liquid Rocket Lab", outcome:"Verification of 3D printed metal parts",
+  summary:"Printing and then verifying material properties of metal 3D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
   image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"50%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
   problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
   contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
@@ -102,16 +102,16 @@ const PROJECTS = [
   drops:[{h:"Parts list",table:[["Part","Qty"]]}]},
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
-  title:"Ring Making and Casting", outcome:"Resin-printed patterns cast in bronze and hand finished.",
-  summary:"A start-to-finish process for making a ring: resin print, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", dy:0}, role:"Sole maker", tools:"Resin printing, lost-wax casting, polishing",
-  what:{h: "What I made", bullets:false, text:["Model the ring in CAD, print it in castable resin, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
+  title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
+  summary:"A complete process for hand-making making a ring: resin print, investment, bronze casting, polishing.",
+  image:{src:"images/casting.jpg", dy:0}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
+  what:{h: "What I made", bullets:false, text:["3D print a ring in resin, post process, attache wax sprues, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
     process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2"]},
-   {h:"Wax treeing",p:"temporary",image:"images/hand-gui.jpg"},
-   {h:"Investment",p:"temporary",image:"images/hand-wrist.jpg"},
-   {h:"Casting",p:"temporary",image:"images/hand-glove.jpg"},
-   {h:"Processing",p:"temporary",image:"images/hand-glove.jpg"}],
+   {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:"images/ring-tree.jpg"},
+   {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:"images/ring-plaster.jpg"},
+   {h:"Casting",p:"temporary",image:"images/ring-casting.jpg"},
+   {h:"Processing",p:"temporary",image:"images/ring-processing.jpg"}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
 { slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
@@ -123,8 +123,12 @@ const PROJECTS = [
 { slug:"lock-projects", type:"personal", kind:"personal", year:"2025",
   title:"Tumbler Locks", outcome:"Several tumbler lock variants, each with a different mechanism.",
   summary:"Multiple versions of tumbler locks designed in different ways.",
-  image:"images/locks.jpg", role:"Designer", tools:"CAD, 3D printing",
-  what:"[One line per variant: how its mechanism differs.]"},
+  image:"images/locks.jpg", role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
+  process:{h:"Iterations", text:[
+    {h:"First Design", p:"description", image:"images/lock-1"}
+    {h:"Second Design", p:"description", image:"images/lock-2"}
+    {h:"Third Design", p:"description", image:"images/lock-3"}
+  ]}},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
 { slug:"example", draft:true, type:"flagship", kind:"personal", year:"2026", title:"Template example",
