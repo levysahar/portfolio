@@ -36,7 +36,7 @@ const PROJECTS = [
 { slug:"banshee-uav", type:"team", kind:"team", featured:false, year:"2025-present",
   title:"Banshee VTOL UAV", outcome:"Structural fabrication for a VTOL UAV built with industry sponsors.",
   summary:"Carbon fiber and machined structural components for a vertical takeoff and landing unmanned aircraft.",
-  image:{src:"images/banshee.jpg", dy:0}, role:"Manufacturing", tools:"Carbon fiber, resin infusion, machining", team:"[team size]",
+  image:{src:"images/banshee.jpg", y:10}, role:"Manufacturing", tools:"Carbon fiber, resin infusion, machining", team:"[team size]",
   problem:"[What the aircraft must do and the structural requirements you worked to.]",
   contribution:["Fabricate structural components using resin-infused carbon fiber layup: [N parts / subassemblies].","[Mold prep, vacuum bagging, trimming, finishing: whichever you did.]","Coordinate with aerodynamics, avionics, and flight test subteams to check fit and mass budget."],
   process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/banshee-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/banshee-2.jpg"}],
@@ -58,7 +58,7 @@ const PROJECTS = [
 { slug:"iam3d-rover", type:"team", kind:"team", featured:true, year:"2025-present",
   title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas.",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
-  image:{src:"images/rover.jpg", dy:0, dx:0 }, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
+  image:{src:"images/rover.jpg", y:100, x:60 }, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
@@ -103,7 +103,7 @@ const PROJECTS = [
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
   summary:"A complete process for hand-making making a ring: resin print, investment, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", dy:-10}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
+  image:{src:"images/casting.jpg", y:70}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
   what:{h: "What I made", bullets:false, text:["3D print a ring in resin, post process, attache wax sprues, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
     process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2.jpg"]},
@@ -122,11 +122,11 @@ const PROJECTS = [
 { slug:"lock-projects", type:"personal", kind:"personal", year:"2025",
   title:"Tumbler Locks", outcome:"Several tumbler lock variants, each with a different mechanism.",
   summary:"Multiple versions of tumbler locks designed in different ways.",
-  image:"images/lock-2.png", role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
+  image:{src:"images/lock-2.png", zoom:0.75}, role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
   process:{h:"Iterations", text:[
-    {h:"First Design", p:"description", image:"images/lock-1.png"},
-    {h:"Second Design", p:"description", image:"images/lock-2.png"},
-    {h:"Third Design", p:"description", image:"images/lock-3.png"}
+    {h:"First Design", p:"description", image:"images/lock-1.png", fill:true},
+    {h:"Second Design", p:"description", image:"images/lock-2.png", fill:true},
+    {h:"Third Design", p:"description", image:"images/lock-3.png", fill:true}
   ]}},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
