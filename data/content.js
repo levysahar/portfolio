@@ -143,8 +143,8 @@ const PROJECTS = [
 
 /* Fabrication page: one block per process. */
 const FAB = [
- {h:"Casting and molding", t:"Lost-wax bronze casting (Modi-Bot, rings), silicone molds, and urethane casting.", images:["images/fab-casting.jpg"]},
- {h:"Machining", t:"Manual mill (stepped block), lathe (stepped spire), and CNC-machined foam for a SkillsUSA competition piece that qualified our team for state.", images:["images/fab-machining.jpg"]},
- {h:"Forming and finishing", t:"Vacuum forming, precise foam sculpting (a sphere from templated halves), and airbrushing with effect paints.", images:["images/fab-forming.jpg"]},
- {h:"Assembly and craft", t:"Steel scale-model kits with hundreds of parts, and a modified jewelry box with a velvet insert.", images:["images/fab-assembly.jpg"]}
+ {h:"Casting and molding", t:"Lost-wax bronze casting, silicone molds, and urethane casting.", images:["images/lego.jpg"]},
+ {h:"Machining", t:"Manual mill (stepped block), lathe (stepped spire), and CNC-machined foam for a SkillsUSA competition piece that qualified our team for state.", images:["images/mill.jpg", "images/lathe.jpg"]},
+ {h:"Forming and finishing", t:"Vacuum forming, precise foam sculpting, and airbrushing with effect paints.", images:["images/sphere.jpg", "images/paint.jpg"]},
+ {h:"Assembly and craft", t:"Steel scale-model kits with hundreds of parts, and a modified jewelry box with a velvet insert.", images:["images/metal-earth.jpg", "images/box.jpg"]}
 ];
