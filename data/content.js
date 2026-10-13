@@ -58,7 +58,7 @@ const PROJECTS = [
 { slug:"iam3d-rover", type:"team", kind:"team", featured:true, year:"2025-present",
   title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas.",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
-  image:{src:"images/rover.jpg", y:100, x:60 }, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
+  image:{src:"images/rover.jpg", y:60, x:65 }, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
   problem:"[Competition rules, mission, and the strength and weight limits.]",
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
@@ -103,7 +103,7 @@ const PROJECTS = [
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
   summary:"A complete process for hand-making making a ring: resin print, investment, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", y:70}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
+  image:{src:"images/casting.jpg", y:75}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
   what:{h: "What I made", bullets:false, text:["3D print a ring in resin, post process, attache wax sprues, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
     process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2.jpg"]},

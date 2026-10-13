@@ -10,7 +10,7 @@ const fig=(s,alt,r)=>{
  if(Array.isArray(s))return `<div class="multi">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
  if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r};${sz(s)}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
  const o=typeof s==='string'?{src:s}:(s||{}),x=o.x??50,y=o.y??50;
- return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}${o.fit==='contain'?`background:${o.bg||'transparent'};`:''}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" style="object-fit:${o.fit||'cover'};object-position:${x}% ${y}%;transform-origin:${x}% ${y}%;transform:translate(${o.dx||0}%,${o.dy||0}%) scale(${o.zoom||1})" onerror="this.remove()">`:''}</figure>`};
+ return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}${o.src?`background:${o.bg||'transparent'};`:''}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" data-x="${x}" data-y="${y}" data-z="${o.zoom||1}" data-dx="${o.dx||0}" data-dy="${o.dy||0}" data-fit="${o.fit||'cover'}" onload="fitImg(this)" onerror="this.remove()">`:''}</figure>`};
 /* thumb / hero inherit from image: give only the keys that differ, e.g. thumb:{ratio:"1/1",dx:5} */
 const pick=(p,k)=>{const b=typeof p.image==='string'?{src:p.image}:p.image,v=p[k];return v===undefined?p.image:typeof v==='object'&&!Array.isArray(v)&&!v.src&&!v.model?Object.assign({},b,v):v};
 const card=p=>`<a class="card" href="project.html?p=${p.slug}">${fig(pick(p,'thumb'),p.title,D.card)}<h3>${p.title}</h3>${p.outcome?`<p>${p.outcome}</p>`:''}${p.tools?`<span>${p.tools}</span>`:''}${p.year?`<span>${p.year}</span>`:''}</a>`;
@@ -69,3 +69,8 @@ function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepM
   for(let k=0;k<4;k++){st.style.gridTemplateColumns=cols(w);w=Math.min(Math.max(t.getBoundingClientRect().height,mn)*r,W*mx)}
   st.style.gridTemplateColumns=cols(w)})}
 fitSteps();addEventListener('resize',fitSteps);addEventListener('load',fitSteps);if(document.fonts)document.fonts.ready.then(fitSteps);
+/* Sizes each image from its real proportions so zoom < 1 reveals the parts a crop would hide.
+   zoom 1 = fills the frame (fit cover) or fits inside it (fit contain); x/y = focal point; dx/dy = shift in % of frame. */
+function fitImg(i){const f=i.parentNode,p=(f.style.aspectRatio||'').split('/').map(Number),fr=p[1]?p[0]/p[1]:f.clientWidth/f.clientHeight,ir=i.naturalWidth/i.naturalHeight,d=i.dataset,z=+d.z||1,k=d.fit==='contain'?Math.min:Math.max,W=z*k(1,ir/fr)*100,H=z*k(1,fr/ir)*100;
+ Object.assign(i.style,{inset:'auto',objectFit:'fill',width:W+'%',height:H+'%',left:(100-W)*d.x/100+'%',top:(100-H)*d.y/100+'%',transform:`translate(${(+d.dx||0)/W*100}%,${(+d.dy||0)/H*100}%)`})}
+document.querySelectorAll('.ph img').forEach(i=>i.complete&&i.naturalWidth&&fitImg(i));
