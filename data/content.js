@@ -34,7 +34,7 @@ const SITE = {
    Images can be "images/a.jpg" or {src, ratio, x, y, zoom} or {model:"models/a.glb"}. */
 const PROJECTS = [
 { slug:"banshee-uav", type:"team", kind:"team", featured:false, year:"2025-present",
-  title:"Banshee VTOL UAV", outcome:"Structural fabrication for a VTOL UAV built with industry sponsors.",
+  title:"Banshee VTOL UAV", outcome:"Structural fabrication for a VTOL UAV",
   summary:"Carbon fiber and machined structural components for a vertical takeoff and landing unmanned aircraft.",
   image:{src:"images/banshee.jpg", y:25}, role:"Manufacturing", tools:"Carbon fiber, resin infusion, machining", team:"[team size]",
   problem:"[What the aircraft must do and the structural requirements you worked to.]",
@@ -56,7 +56,7 @@ const PROJECTS = [
   drops:[{h:"Sponsors",p:"Team sponsored by "}]},
 
 { slug:"iam3d-rover", type:"team", kind:"team", featured:true, year:"2025-present",
-  title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas.",
+  title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
   image:{src:"images/rover.jpg", y:60, x:0 }, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
   problem:"[Competition rules, mission, and the strength and weight limits.]",
@@ -66,8 +66,8 @@ const PROJECTS = [
   drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}]},
 
 { slug:"enigma-replica", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
-  title:"Enigma Machine Replica", outcome:"Rotor stepping, patch panel, keyboard and lamp board, all designed from scratch.",
-  summary:"A mechanical and electrical replica of the Enigma cipher machine, designed in Fusion360 and 3D printed.",
+  title:"Enigma Machine Replica", outcome:"A mechanical and electrical replica of the Enigma cipher machine",
+  summary:"Rotor stepping, patch panel, keyboard and lamp board, all designed from scratch, designed in Fusion360 and 3D printed.",
   image:"images/enigma.jpg", role:"Sole designer", tools:"Fusion360, 3D printing",
   stats:{"3D-printed components":"temporary", "Total components":"temporary"},
   problem:{h:"The motivation", bullets:false,  text:"Reproduce the World War II Enigma's behavior as accurately as possible with working mechanisms: stepping rotors, a keyboard, a plugboard, and a lamp board."},
