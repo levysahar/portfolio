@@ -104,14 +104,14 @@ const PROJECTS = [
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
   summary:"A complete process for hand-making making a ring: resin print, investment, bronze casting, polishing.",
-  image:{src:"images/casting.jpg", dy:0}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
+  image:{src:"images/casting.jpg", dy:-5}, role:"Sole maker", tools:"Resin printing, lost-'wax' casting, polishing",
   what:{h: "What I made", bullets:false, text:["3D print a ring in resin, post process, attache wax sprues, invest and burn out the pattern, cast in bronze, then cut, sand, and polish."]},
     process:[
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2"]},
    {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:{src:"images/ring-tree.jpg", w:"60%"}},
    {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:{src:"images/ring-plaster.jpg", w:"60%"}},
    {h:"Casting",p:"temporary",image:{src:"images/ring-casting.jpg", w:"60%"}},
-   {h:"Processing",p:"temporary",image:{src:"images/ring-processing.jpg", w:"60%"}}],
+   {h:"Processing",p:"temporary",image:{src:"images/ring-processing.jpg", w:"100%"}}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
 { slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
