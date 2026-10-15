@@ -16,8 +16,8 @@ const SITE = {
   buttons: [["View work","work.html"],["Resume","resume.html"],["Contact","mailto:levysahar2007@gmail.com"]],
   skills: [
     {h:"CAD and design", t:"SolidWorks, Fusion 360, mechanical and structural design."},
-    {h:"Fabrication", t:"3D printing, bronze casting, silicone molding, manual mill and lathe."},
-    {h:"Electronics and code", t:"Arduino, ESP32, Python, sensor integration and motor control."}
+    {h:"Fabrication", t:"3D printing, laser cutting, bronze casting, silicone molding, manual mill and lathe."},
+    {h:"Electronics and code", t:"Arduino, Python, sensor integration and motor control."}
   ], 
   about: {
     bio: ["I'm a mechanical engineering student at Cal Poly Pomona, with experience in CAD, additive manufacturing, and shop fabrication. I contribute to the Banshee VTOL UAV team, the Liquid Rocket Lab, and the IAM3D rover team, which placed first among 20 national teams at the ASME eFX Dallas competition. I am a Gene Haas Foundation Scholarship recipient and am seeking internships and professional experience in design, manufacturing, and mechanical engineering."],
@@ -86,10 +86,10 @@ const PROJECTS = [
 { slug:"biomimetic-hand", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven by servo-actuated tendons.",
-  image:"images/hand.jpg", role:"Sole designer", tools:"Arduino, Python, Fusion 360, 3-D Printer",
+  image:"images/hand.jpg", role:"Sole designer", tools:"Arduino, Python, Fusion 360, 3D Printer",
   stats:{"3D-printed components":"temporary", "Total components":"temporary"},
   problem: {h:"The motivation", bullets:false,  text:"temporary"},
-  contribution:{h:"The goal", bullets:true, text:["A primarily 3D-printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"]},
+  contribution:{h:"The goal", bullets:true, text:["A primarily 3D printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"]},
   process:[
    {h:"Inital 1-finger design",p:"temporary",image:"images/hand-finger.jpg"},
    {h:"Initial software and GUI",p:"temporary",image:"images/hand-gui.jpg"},
@@ -109,8 +109,8 @@ const PROJECTS = [
    {h:"Resin Form",list:["Find a fitting design and scale it to the right dimensions", "3D print the design out of resin", "Wash in isopropyl alchohol and then cure in a UV chamber", "Remove supports, file and sand to achieve final shape"],image:["images/ring-1.jpg", "images/ring-2.jpg"]},
    {h:"Wax treeing",list:["Melting wax sprues onto the ring to allow smooth flow of molten metal", "Attaching the sprued ring to a sprue base"],image:"images/ring-tree.jpg", fill:true},
    {h:"Investment",list:["Mixing fine investment plaster and pouring over sprued ring", "Putting in a vaccum chamber to draw air bubbles out", "Place in a pressure pot to cure to ensure that no bubbles form"],image:"images/ring-plaster.jpg", fill:true},
-   {h:"Casting",p:"temporary",image:"images/ring-casting.jpg", fill:true},
-   {h:"Processing",p:"temporary",image:["images/ring-processing.jpg","images/ring-final.jpg"], fill:true}],
+   {h:"Casting",list:["Heating up investment flask in a furnace to burn out form and heat up investment","Heat up silica bronze casting grain in a crucible", "Place investment flask on a vacuum casting machine, activate vacuum and pour molten bronze in", "Wait until bronzez is a light red color, then dunk in water to dissolve plaster and cool bronze"],image:"images/ring-casting.jpg", fill:true},
+   {h:"Processing",list:["Use jewelers saw to seperate ring from extra material", "Use a dremel with carving bit to remove as much excess material as safely possible", "Use a sanding drum bit, and manual sanding and fiiling, to bring the ring to the final shape", "Use polishing wheels and polishing compound to bring the ring to a high polish"],image:["images/ring-processing.jpg","images/ring-final.jpg"], fill:true}],
   change:"Next: a benchtop lathe with a ring mandrel for turned rings."},
 
 { slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
