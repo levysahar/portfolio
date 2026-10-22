@@ -33,7 +33,7 @@ const SITE = {
    Any field you leave out is simply skipped. Full field guide: docs/GUIDE.md
    Images can be "images/a.jpg" or {src, ratio, x, y, zoom} or {model:"models/a.glb"}. */
 const PROJECTS = [
-{ slug:"banshee-uav", type:"team", kind:"team", featured:false, year:"2025-present",
+/*{ slug:"banshee-uav", type:"team", kind:"team", featured:false, year:"2025-present",
   title:"Banshee VTOL UAV", outcome:"Structural fabrication for a VTOL UAV",
   summary:"Carbon fiber and machined structural components for a vertical takeoff and landing unmanned aircraft.",
   image:{src:"images/banshee.jpg", y:25}, role:"Manufacturing", tools:"Carbon fiber, resin infusion, machining", team:"[team size]",
@@ -43,6 +43,7 @@ const PROJECTS = [
   result:"[Outcome, test results, flight status.]",
   gallery:["images/banshee-3.jpg","images/banshee-4.jpg"],
   drops:[{h:"Sponsors",p:"Team sponsored by Lockheed Martin, Southern California Edison, Air Force Research Laboratory, Robotis, and General Atomics."}]},
+*/
 
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
   title:"Liquid Rocket Lab", outcome:"Verification of 3D printed metal parts",
@@ -82,7 +83,7 @@ const PROJECTS = [
   drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]},
    {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]},
 
-{ slug:"biomimetic-hand", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
+/*{ slug:"biomimetic-hand", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
   title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven by servo-actuated tendons.",
   image:"images/hand.jpg", role:"Sole designer", tools:"Arduino, Python, Fusion 360, 3D Printer",
@@ -98,6 +99,7 @@ const PROJECTS = [
   result:"temporary", change:"temporary",
   gallery:["images/hand-1.jpg","images/hand-2.jpg"],
   drops:[{h:"Parts list",table:[["Part","Qty"]]}]},
+*/
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
