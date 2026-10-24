@@ -60,7 +60,7 @@ const PROJECTS = [
   title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
   image:{src:"images/rover.jpg", y:60, x:0 }, role:"Chassis design", tools:"SolidWorks, Fusion 360, 3D printing", team:"18 people", stats:{Result:"1st place, eFX Dallas 2025"},
-  problem:"[Competition rules, mission, and the strength and weight limits.]",
+  problem: list:["temp"],
   contribution:["Designed chassis structures balancing strength, weight, and mission requirements: [X% mass reduction].","Printed and tested [N] iterations of structural parts."],
   process:[{h:"[Design iteration]",p:"[Key decision and why.]",image:"images/rover-1.jpg"}],
   result:[{ h:"Result", p:"First place at eFX Dallas of 20 teams.", image:{model:"models/rover.glb", ratio:"1/1"}}], change:"[1-3 honest sentences.]", 
@@ -79,7 +79,7 @@ const PROJECTS = [
    {h:"Plug Board",p:"temporary.",image:"images/enigma-plug.jpg"},
    {h:"Lamp Board",p:"temporary", image:"images/enigma-lamp.jpg"}],
   result:"[Fill in once built.]", change:"[Fill in once built.]",
-  gallery:["images/enigma-1.jpg","images/enigma-2.jpg", {model:"models/enigma.glb",ratio:"1/1"}],
+  gallery:["images/enigma-1.jpg","images/enigma-2.jpg", "images/enigma-3.jpg"/*{model:"models/enigma.glb",ratio:"1/1"}*/],
   drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]},
    {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]},
 
