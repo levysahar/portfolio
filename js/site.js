@@ -3,7 +3,7 @@ const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['-
 const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
-const sz=o=>o&&o.w?`max-width:${o.w};${o.align==='left'?'margin-right':o.align==='right'?'margin-left':'margin-inline'}:auto;`:'';
+const sz=o=>o&&o.w?`width:100%;max-width:${o.w};${o.align==='left'?'margin-right':o.align==='right'?'margin-left':'margin-inline'}:auto;`:'';
 /* Fixed page text. Override any of these in SITE.labels (see docs/GUIDE.md). */
 const T=Object.assign({navWork:"Work",navFab:"Fabrication",navAbout:"About",navResume:"Resume",featured:"Featured projects",seeAll:"See all projects",skills:"What I do",work:"Work",chipAll:"All",chipTeam:"Team",chipPersonal:"Personal",back:"All work",prev:"Previous",next:"Next",role:"Role",timeline:"Timeline",tools:"Tools",team:"Team",gallery:"Gallery",drops:"Details and files",fab:"Fabrication",fabIntro:"Hands-on process experience from three design, model making, and rapid prototyping classes, plus personal work.",about:"About",education:"Education",activities:"Teams and activities",awards:"Awards",contact:"Contact",resume:"Resume",download:"Download PDF"},SITE.labels);
 const fig=(s,alt,r)=>{
