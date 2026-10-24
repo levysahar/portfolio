@@ -68,7 +68,7 @@ const PROJECTS = [
     {h:"Second Major Iteration",p:"The second iteration was focused mainly on the motor attachment point, after positive results from the first iteration. I went for a keyed design with a set screw, in which the motor was secured to the key and then the key secured to the rim.",image:"images/rover-wheel-3.png"},
     {h:"Last Second Changes",p:"Just days before the competition, it was decided that we should add treads to the wheel, to allow for greater diversity of surfaces, as we didn't know the exact conditions of the sand we would be competing on. The treads were added and reprinted successfully, although its unclear if this was necessary or not.",image:"images/rover-wheel-4.jpg"}],
   result:[{ h:"Result", p:"The culmination of our work was winning first place at eFX Dallas out of 20 teams, scoring more than double the preceding team. We catalogued and archived the knowledge we had learned for the competition next year, including judge's comments on our design report, information about the competition itself, and things we could have improved on. I am now also on the next year's team, now in charge of the main CAD assembly. The prompt is similar, but encompasses a wider variety of surfaces to drive on. We are already well ahead of the schedule from last year, and anticipate a good competition.", image:"images/rover-win.png"}],
-  gallery:["images/rover-1.jpg","images/rover-2.jpg"/*, "images/enigma-3.jpg"{model:"models/enigma.glb",ratio:"1/1"}*/], 
+  gallery:["images/rover-1.jpg","images/rover-2.jpg"/*, "images/enigma-3.jpg"{model:"models/enigma.glb",ratio:"1/1"}*/] 
   //drops:[{h:"Parts list",table:[["Part","Material","Process"],["[Chassis rail]","[PETG]","FDM"]]}]
 },
 
