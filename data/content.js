@@ -85,7 +85,7 @@ const PROJECTS = [
    {h:"Plug Board",p:"temporary.",image:"images/enigma-plug.jpg"},
    {h:"Lamp Board",p:"temporary", image:"images/enigma-lamp.jpg"}],
   result:"[Fill in once built.]", change:"[Fill in once built.]",
-  gallery:["images/enigma-1.jpg","images/enigma-2.jpg", "images/enigma-3.jpg"/*{model:"models/enigma.glb",ratio:"1/1"}*/],
+  gallery:["images/enigma-1.jpg","images/enigma-2.jpg", "images/enigma-3.jpg"/*{model:"models/enigma.glb",ratio:"1/1"}*/]
   //drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]}, {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]
 },
 
