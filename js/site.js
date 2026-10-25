@@ -25,7 +25,7 @@ const TPL={
  flagship:[["problem","The problem"],["contribution","My contribution"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
  team:[["problem","The problem"],["contribution","My contribution"],["process","How we built it"],["result","Result"],["change","What I would change"]],
  personal:[["what","What it does"],["specs","Key specs"],["process","Process"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
-const step=(s,i)=>`<div class="step${i%2?' r':''}${(s.fill??L.stepFill)?' fill':''}"${(s.height??L.stepHeight)?` data-h="${parseFloat(s.height??L.stepHeight)}"`:''}><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
+const step=(s,i)=>`<div class="step${i%2?' r':''}${(s.fill??L.stepFill)?' fill':''}"${(s.height??L.stepHeight)?` data-h="${parseFloat(s.height??L.stepHeight)}"`:''}${(s.grow??L.stepGrow)?` data-g="${parseFloat(s.grow??L.stepGrow)}"`:''}><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
 const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
 const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step,o.stack):''}</section>`};
 const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step,d.stack):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
@@ -65,13 +65,13 @@ if(document.querySelector('model-viewer')){const s=document.createElement('scrip
 /* fill / height: size a step's image (or a stack of images) to the text height, or to a set height, keeping every ratio.
    One image: width = height x ratio. Stacked images: equal widths, heights add up to the target. Width is capped by layout.stepMax. */
 function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepMin||260);
- document.querySelectorAll('.step.fill,.step[data-h]').forEach(st=>{const t=st.children[0],f=st.children[1],multi=f&&f.classList.contains('multi');
+ document.querySelectorAll('.step.fill,.step[data-h],.step[data-g]').forEach(st=>{const t=st.children[0],f=st.children[1],multi=f&&f.classList.contains('multi');
   if(innerWidth<=760||!f||(multi&&!f.classList.contains('stack'))){st.style.gridTemplateColumns='';return}
   const figs=multi?[...f.children]:[f],rs=figs.map(x=>{const p=(x.style.aspectRatio||'').split('/').map(Number);return p[1]?p[0]/p[1]:0});
   if(!rs.length||rs.some(x=>!x)){st.style.gridTemplateColumns='';return}
-  const W0=st.clientWidth,rev=st.classList.contains('r'),T='var(--step-text,minmax(0,1fr))',cols=w=>rev?`${w}px ${T}`:`${T} ${w}px`,
-   gap=multi?(parseFloat(getComputedStyle(f).rowGap)||12)*(figs.length-1):0,inv=rs.reduce((a,r)=>a+1/r,0),H=parseFloat(st.dataset.h);let w=W0*.5;
-  for(let k=0;k<4;k++){st.style.gridTemplateColumns=cols(w);const Ht=H||Math.max(t.getBoundingClientRect().height,mn);w=Math.min(Math.max(Ht-gap,50)/inv,W0*mx)}
+  const W0=st.clientWidth,rev=st.classList.contains('r'),T='var(--step-text,minmax(0,1fr))',cols=w=>rev?`minmax(0,${w}px) ${T}`:`${T} minmax(0,${w}px)`,
+   gap=multi?(parseFloat(getComputedStyle(f).rowGap)||12)*(figs.length-1):0,inv=rs.reduce((a,r)=>a+1/r,0),H=parseFloat(st.dataset.h),G=parseFloat(st.dataset.g)||1;let w=W0*.5;
+  for(let k=0;k<4;k++){st.style.gridTemplateColumns=cols(w);const Ht=H||Math.max(t.getBoundingClientRect().height,mn)*G;w=Math.min(Math.max(Ht-gap,50)/inv,W0*mx)}
   st.style.gridTemplateColumns=cols(w)})}
 fitSteps();addEventListener('resize',fitSteps);addEventListener('load',fitSteps);if(document.fonts)document.fonts.ready.then(fitSteps);
 /* Sizes each image from its real proportions so zoom < 1 reveals the parts a crop would hide.
