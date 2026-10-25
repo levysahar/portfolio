@@ -43,8 +43,9 @@ work:()=>{const k=q.get('k'),f=[[T.chipAll,''],[T.chipTeam,'team'],[T.chipPerson
 project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.get('p'))||L[0],i=L.indexOf(p),pv=L[i-1],nx=L[i+1];
  document.title=p.title+' - '+SITE.name;
  const cells=[[T.role,p.role],[T.timeline,p.year],[T.tools,p.tools],[T.team,p.team]].concat(Object.entries(p.stats||{})).filter(x=>x[1]);
- return `<article class="wrap wx sec"><a class="back" href="work.html">${T.back}</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${p.status?`<p><span class="status">${p.status}</span></p>`:''}${fig(pick(p,'hero'),p.title,D.hero)}
+ return `<article class="wrap wx sec"><a class="back" href="work.html">${T.back}</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${fig(pick(p,'hero'),p.title,D.hero)}
  <dl class="tb">${cells.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl>
+ ${p.status?`<p><span class="status">${p.status}</span></p>`:''}
  ${(TPL[p.type]||[]).filter(t=>p[t[0]]).map(t=>sec((p.titles||{})[t[0]]||t[1],p[t[0]])).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
  ${p.gallery?`<section class="blk full"><h2>${(p.titles||{}).gallery||T.gallery}</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
  ${p.drops?`<section class="blk full"><h2>${(p.titles||{}).drops||T.drops}</h2>${p.drops.map(drop).join('')}</section>`:''}

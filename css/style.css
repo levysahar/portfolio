@@ -38,7 +38,7 @@ background:repeating-linear-gradient(45deg,#dfe3e1 0 8px,#e9ecea 8px 16px)}
 .tb{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--ink);border:2px solid var(--ink);margin:26px 0}
 .tb div{background:var(--paper);padding:10px 14px}
 .tb dt{font:600 15px var(--hd);color:var(--mute)}.tb dd{margin:0}
-.status{display:inline-block;border:2px solid var(--bronze);color:var(--bronze);font:600 16px var(--hd);padding:2px 12px}
+.status{display:inline-block;border:3px solid var(--bronze);color:var(--bronze);font:700 30px var(--hd);letter-spacing:.04em;text-transform:uppercase;padding:6px 22px}
 .blk{max-width:68ch;padding:26px 0}.blk .ph{margin-top:16px}
 .back{font:600 17px var(--hd)}
 .pn{display:flex;justify-content:space-between;gap:20px;border-top:2px solid var(--ink);margin-top:40px;padding-top:16px;font:600 19px var(--hd)}
