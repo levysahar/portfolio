@@ -14,7 +14,7 @@ const SITE = {
   linkedin: "https://www.linkedin.com/in/sahar-l",
   resume: "files/resume.pdf",         
   buttons: [["View work","work.html"],["Resume","resume.html"],["Contact","mailto:levysahar2007@gmail.com"]],
-  layout:{stepText:"60ch"},
+  layout:{stepText:"50ch"},
   skills: [
     {h:"CAD and design", t:"SolidWorks, Fusion 360, mechanical and structural design."},
     {h:"Fabrication", t:"3D printing, laser cutting, bronze casting, silicone molding, manual mill and lathe."},
