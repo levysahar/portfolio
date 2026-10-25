@@ -6,8 +6,8 @@ const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3
 const sz=o=>o&&o.w?`width:100%;max-width:${o.w};${o.align==='left'?'margin-right':o.align==='right'?'margin-left':'margin-inline'}:auto;`:'';
 /* Fixed page text. Override any of these in SITE.labels (see docs/GUIDE.md). */
 const T=Object.assign({navWork:"Work",navFab:"Fabrication",navAbout:"About",navResume:"Resume",featured:"Featured projects",seeAll:"See all projects",skills:"What I do",work:"Work",chipAll:"All",chipTeam:"Team",chipPersonal:"Personal",back:"All work",prev:"Previous",next:"Next",role:"Role",timeline:"Timeline",tools:"Tools",team:"Team",gallery:"Gallery",drops:"Details and files",fab:"Fabrication",fabIntro:"Hands-on process experience from three design, model making, and rapid prototyping classes, plus personal work.",about:"About",education:"Education",activities:"Teams and activities",awards:"Awards",contact:"Contact",resume:"Resume",download:"Download PDF"},SITE.labels);
-const fig=(s,alt,r)=>{
- if(Array.isArray(s))return `<div class="multi">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
+const fig=(s,alt,r,st)=>{
+ if(Array.isArray(s))return `<div class="multi${(st??L.stack)?' stack':''}">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
  if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r};${sz(s)}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
  const o=typeof s==='string'?{src:s}:(s||{}),x=o.x??50,y=o.y??50;
  return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}${o.src?`background:${o.bg||'transparent'};`:''}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" data-x="${x}" data-y="${y}" data-z="${o.zoom||1}" data-dx="${o.dx||0}" data-dy="${o.dy||0}" data-fit="${o.fit||'cover'}" onload="fitImg(this)" onerror="this.remove()">`:''}</figure>`};
@@ -25,10 +25,10 @@ const TPL={
  flagship:[["problem","The problem"],["contribution","My contribution"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
  team:[["problem","The problem"],["contribution","My contribution"],["process","How we built it"],["result","Result"],["change","What I would change"]],
  personal:[["what","What it does"],["specs","Key specs"],["process","Process"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
-const step=(s,i)=>`<div class="step${i%2?' r':''}${(s.fill??L.stepFill)?' fill':''}"><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step)}</div>`;
+const step=(s,i)=>`<div class="step${i%2?' r':''}${(s.fill??L.stepFill)?' fill':''}"><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
 const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
-const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step):''}</section>`};
-const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
+const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step,o.stack):''}</section>`};
+const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step,d.stack):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
 
 const R={
 home:()=>{document.title=SITE.name+' - Portfolio';
