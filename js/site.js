@@ -1,5 +1,5 @@
 /* SITE.layout sizes become CSS variables (see docs/GUIDE.md) */
-const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--step-min',L.stepMin],['--fab-cols',L.fabCols]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
+const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--step-min',L.stepMin],['--fab-cols',L.fabCols],['--step-text',L.stepText]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
 const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
@@ -69,7 +69,7 @@ function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepM
   if(innerWidth<=760||!f||(multi&&!f.classList.contains('stack'))){st.style.gridTemplateColumns='';return}
   const figs=multi?[...f.children]:[f],rs=figs.map(x=>{const p=(x.style.aspectRatio||'').split('/').map(Number);return p[1]?p[0]/p[1]:0});
   if(!rs.length||rs.some(x=>!x)){st.style.gridTemplateColumns='';return}
-  const W0=st.clientWidth,rev=st.classList.contains('r'),cols=w=>rev?`${w}px minmax(0,1fr)`:`minmax(0,1fr) ${w}px`,
+  const W0=st.clientWidth,rev=st.classList.contains('r'),T='var(--step-text,minmax(0,1fr))',cols=w=>rev?`${w}px ${T}`:`${T} ${w}px`,
    gap=multi?(parseFloat(getComputedStyle(f).rowGap)||12)*(figs.length-1):0,inv=rs.reduce((a,r)=>a+1/r,0),H=parseFloat(st.dataset.h);let w=W0*.5;
   for(let k=0;k<4;k++){st.style.gridTemplateColumns=cols(w);const Ht=H||Math.max(t.getBoundingClientRect().height,mn);w=Math.min(Math.max(Ht-gap,50)/inv,W0*mx)}
   st.style.gridTemplateColumns=cols(w)})}

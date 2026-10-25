@@ -49,7 +49,7 @@ footer a{margin-right:20px}
 /* project pages: wider layout, split steps, gallery, dropdowns, 3D */
 .wx{max-width:var(--page-w,1320px)}
 .blk.full{max-width:none}
-.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,var(--step-img,1.8fr));gap:36px;align-items:start;padding:28px 0;border-top:1px solid var(--ink)}
+.step{display:grid;grid-template-columns:var(--step-text,minmax(0,1fr)) minmax(0,var(--step-img,1.8fr));gap:36px;align-items:start;padding:28px 0;border-top:1px solid var(--ink)}
 .step.r>:first-child{order:2}.step .ph{margin:0}
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--gal-min,360px),1fr));gap:16px}.gal .ph{margin:0}
 details{border:2px solid var(--ink);background:var(--paper);margin:12px 0;max-width:900px}
@@ -63,7 +63,8 @@ model-viewer{position:absolute;inset:0;z-index:1;width:100%;height:100%;backgrou
 @media(max-width:760px){.step,.step.r{grid-template-columns:1fr}.step.r>:first-child{order:0}.pn{flex-direction:column}}
 .multi{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}.multi .ph{margin:0}
 .blk.full>p,.blk.full>ul{max-width:68ch}
-.step.r{grid-template-columns:minmax(0,var(--step-img,1.8fr)) minmax(0,1fr)}
+.step.r{grid-template-columns:minmax(0,var(--step-img,1.8fr)) var(--step-text,minmax(0,1fr))}
+.step{justify-content:space-between}
 .step .multi{margin-top:0}
 .fabgrid{display:grid;grid-template-columns:repeat(var(--fab-cols,2),minmax(0,1fr));gap:20px 48px;align-items:start}
 .fabgrid .blk{max-width:none}
