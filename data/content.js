@@ -46,9 +46,9 @@ const PROJECTS = [
 */
 
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
-  title:"Liquid Rocket Lab", outcome:"Verification of 3D printed metal parts",
+  title:"Liquid Rocket Lab", outcome:"Material testing of 3D printed metal parts",
   summary:"Printing and then verifying material properties of metal 3D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
-  image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, Total 30?",
+  image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, total ~60",
   problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
   contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
   process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
@@ -81,10 +81,11 @@ const PROJECTS = [
   contribution:{h:"What I built", bullets:true,  text:["Designed each mechanism in Fusion360 with manufacturing and assembly in mind.","Built a motion study model to verify the geometry of stepping wheels and pawls.","Iterated countless times both virtually and with physical parts.", "Integrated with other components, such as: pogo pins, banana plugs, and lightbulbs"]},
   process:[
    {h:"'Scrambler Assembly'",list:["Rotor: A complex assembly designed with DFMA and DFAM in mind. Primary components include a rotor wheel for hand adjustment of rotational position, a ratchet wheel for mechanical adjustment of rotational position, and pin plates to hold pogo pins and contact pads to allow current travel at all rotational positions", "Reflector: The end piece at the left end of the scrambler assembly that takes current in from one pin and outputs it from a different pin. Also able to move back and forth about 10mm to ensure pin contact and lock rotors in place", "Stator: The static piece at the right end of the assembly that takes in input wires from the rest of the machine and outputs it into contact pads", "Assembly: Brings 3 rotors, a reflector and a stator together, with an additional indexer mechanism to keep each of the rotors in one of 26 discrete positions"],image:["images/enigma-scrambler.jpg", "images/enigma-rotor.jpg"]},
-   {h:"Input Board",p:"3D-printed housings with a spring contact triggered by plug insertion depth, so each letter bridges to itself until a plug is inserted.",image:"images/enigma-input.jpg"},
-   {h:"Plug Board",p:"temporary.",image:"images/enigma-plug.jpg"},
-   {h:"Lamp Board",p:"temporary", image:"images/enigma-lamp.jpg"}],
-  result:"[Fill in once built.]", change:"[Fill in once built.]",
+   {h:"Input Board",list:["A combination of 3D printed parts and laser cut parts coming together to form a mechanical keyboard.", "Each keypress actuates the Scrambler linkage by about 10mm, and triggers a hand-made 3 way switch.", "The switch has 3 phosphor bronze conducting plates stacked on top of each other, with the middle always contacting the top plate, completing continuity from the battery to the lampboard. When actuated, the middle plate moves to contact the bottom plate and connecting the battrery and rest of 'scrambling' circuitry."],image:"images/enigma-input.jpg"},
+   {h:"Plug Board",list:["A board consiting of 26 connector pairs, 52 banana plugs total.","The input signal comes immediately from the keyboard into the plug board, where it gets 'translated' into a different letter.","After going through the Scrambler Assembly, the signal comes back to the plugboard to be 'translated' again, outputting to the 3-way switches and then to the lampboard."],image:"images/enigma-plug.jpg"},
+   {h:"Lamp Board",list:["The lampboard is the final stage that allows operation of the machine. All signals end up here when a key is pressed, and light up a key that is never the same as the input that was pressed and always different.","Consisting of 26 E10 6.2V 0.5A incandscent bulbs with light blockers and diffusion filters to indicate the output letter."], image:"images/enigma-lamp.jpg"}],
+  result:"Project is not yet finished, results TBD", 
+  //change:"[Fill in once built.]",
   gallery:["images/enigma-1.jpg","images/enigma-2.jpg", "images/enigma-3.jpg"/*{model:"models/enigma.glb",ratio:"1/1"}*/]
   //drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]}, {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]
 },
