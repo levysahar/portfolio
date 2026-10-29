@@ -91,12 +91,12 @@ const PROJECTS = [
   //drops:[{h:"Parts list",table:[["Part","Qty","Source"],["E10 screw-base bulbs","26+","[AliExpress]"],["Copper strip","[N]","[source]"],["Banana plugs and sockets","[N]","[source]"],["3D-printed parts","[N]","Printed in [material]"]]}, {h:"Files",links:[["Rotor CAD (STEP)","files/enigma-rotor.step"],["Printable parts (ZIP)","files/enigma-stl.zip"]]}]
 },
 
-/*{ slug:"biomimetic-hand", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
-  title:"Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
+{ slug:"biomimetic-hand", type:"flagship", kind:"personal", featured:true, year:"2026", status:"In progress",
+  title:"Next Project: Biomimetic Robotic Hand", outcome:"A biomimetic cable actuated hand",
   summary:"A realistic mechanical hand driven by servo-actuated tendons.",
-  image:"images/hand.jpg", role:"Sole designer", tools:"Arduino, Python, Fusion 360, 3D Printer",
-  stats:{"3D-printed components":"temporary", "Total components":"temporary"},
-  problem: {h:"The motivation", bullets:false,  text:"temporary"},
+  image:"images/hand.jpg", role:"Sole engineer", tools:"Arduino, Python, Fusion 360, 3D Printer",
+  stats:{"3D-printed components":"In Progress", "Total components":"In Progress"},
+  /*problem: {h:"The motivation", bullets:false,  text:"In Progress"},
   contribution:{h:"The goal", bullets:true, text:["A primarily 3D printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"]},
   process:[
    {h:"Inital 1-finger design",p:"temporary",image:"images/hand-finger.jpg"},
@@ -106,8 +106,8 @@ const PROJECTS = [
   analysis:"temporary",
   result:"temporary", change:"temporary",
   gallery:["images/hand-1.jpg","images/hand-2.jpg"],
-  drops:[{h:"Parts list",table:[["Part","Qty"]]}]},
-*/
+  drops:[{h:"Parts list",table:[["Part","Qty"]]}]*/},
+
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
@@ -133,9 +133,9 @@ const PROJECTS = [
   summary:"Multiple versions of tumbler locks designed in different ways.",
   image:{src:"images/lock-2.png", zoom:0.9}, role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
   process:{h:"Iterations", text:[
-    {h:"First Design", p:"description", image:"images/lock-1.png", fill:true},
-    {h:"Second Design", p:"description", image:"images/lock-2.png", fill:true},
-    {h:"Third Design", p:"description", image:"images/lock-3.png", fill:true}
+    {h:"First Design", p:"The very first design, made for a high school makerspace class final project. Made using simple shapes, entirely 3D printed with no fasteners. The use of TinkerCAD software was a major limitation, but this version kickstarted my interest in CAD, and lead to several more iterations in more complex softwares.", image:"images/lock-1.png", fill:true},
+    {h:"Second Design", p:"One of my first projects in Fusion360, the second major iteration of a tumbler lock design. This design was much more compact, with a smaller volume and smoother operation. It still did not use fasteners, instead opting for mechanical features that would constrain components' movement, as well as a compliant mechanism latch as the lid.", image:"images/lock-2.png", fill:true},
+    {h:"Third Design", p:"An unfinished prototype of an entirely custom lock design, meant to be much more secure than normal locks by not allowing the key to interact with the pins while unlocking. Was ultimately intended to have a complex mechanism to 'lock' the pins in place whiel rotating the core, allowing the combination to be tested away from the key. This proved to be too ambitious for my current skill set, and my interest was captivated by other projects.", image:"images/lock-3.png", fill:true}
   ]}},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
