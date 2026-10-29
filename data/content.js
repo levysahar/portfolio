@@ -46,17 +46,6 @@ const PROJECTS = [
   drops:[{h:"Sponsors",p:"Team sponsored by Lockheed Martin, Southern California Edison, Air Force Research Laboratory, Robotis, and General Atomics."}]},
 */
 
-{ slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
-  title:"Liquid Rocket Lab", outcome:"Material testing of 3D printed metal parts",
-  summary:"Printing and then verifying material properties of metal 3D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
-  image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, total ~60",
-  problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
-  contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
-  process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
-  result:"[Twice yearly reports with presentations to sponsors.]",
-  gallery:["images/lrl-3.jpg","images/lrl-4.jpg"],
-  drops:[{h:"Sponsors",p:"Team sponsored by "}]},
-
 { slug:"iam3d-rover", type:"team", kind:"team", featured:true, year:"2025-present",
   title:"IAM3D Rover Chassis", outcome:"Part of the team that won 1st place at ASME eFX Dallas",
   summary:"Land rover chassis designed in CAD and built from 3D-printed thermoplastics.",
@@ -108,6 +97,16 @@ const PROJECTS = [
   gallery:["images/hand-1.jpg","images/hand-2.jpg"],
   drops:[{h:"Parts list",table:[["Part","Qty"]]}]*/},
 
+{ slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
+  title:"Liquid Rocket Lab", outcome:"Material testing of 3D printed metal parts",
+  summary:"Printing and then verifying material properties of metal 3D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
+  image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, total ~60",
+  problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
+  contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
+  process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
+  result:"[Twice yearly reports with presentations to sponsors.]",
+  gallery:["images/lrl-3.jpg","images/lrl-4.jpg"],
+  drops:[{h:"Sponsors",p:"Team sponsored by "}]},
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
@@ -122,21 +121,21 @@ const PROJECTS = [
    {h:"Processing",list:["Use jewelers saw to seperate ring from extra material", "Use a dremel with carving bit to remove as much excess material as safely possible", "Use a sanding drum bit, and manual sanding and fiiling, to bring the ring to the final shape", "Use polishing wheels and polishing compound to bring the ring to a high polish"],image:["images/ring-processing.jpg","images/ring-final.jpg"], fill:true}],
   change:"The ring ended up being the wrong size, so printing it slightly thicker than desired to later fine-tune would be better. In addition, there were some minor casting defects, later made worse when I tried to smooth them with a Dremel. Perhaps some part of the casting process could be improved, or thickening the ring to prevent defects. This project inspired me to buy a benchtop wood lathe to turn wooden and potentially soft metal rings that can be much more fine-tuned and detailed, along with a larger variety of materials."},
 
-{ slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
-  title:"Engine Assembly", outcome:"58 components, fully constrained to move realistically.",
-  summary:"A SolidWorks engine assembly built from class engineering drawings.",
-  image:"images/engine.png", role:"Designer", tools:"SolidWorks",
-  what:"[Engine type, key mates. Add an exploded view and a short motion clip.]"},
-
 { slug:"lock-projects", type:"personal", kind:"personal", year:"2025",
   title:"Tumbler Locks", outcome:"Several tumbler lock variants, each with a different mechanism.",
   summary:"Multiple versions of tumbler locks designed in different ways.",
   image:{src:"images/lock-2.png", zoom:0.9}, role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
   process:{h:"Iterations", text:[
-    {h:"First Design", p:"The very first design, made for a high school makerspace class final project. Made using simple shapes, entirely 3D printed with no fasteners. This design was functional, but clunky and awkward to assemble and use, with large errors in tolerancing. The use of TinkerCAD software was a major limitation, but this version kickstarted my interest in CAD, and lead to several more iterations in more complex softwares.", image:"images/lock-1.png", fill:true},
+    {h:"First Design", p:"The very first design, made for a high school makerspace class final project. Made using simple shapes, entirely 3D printed with no fasteners. This design was functional, but clunky and awkward to assemble and use, with large errors in tolerancing. The use of TinkerCAD software was a major limitation, but this version kickstarted my interest in CAD, and led to several more iterations in more complex softwares.", image:"images/lock-1.png", fill:true},
     {h:"Second Design", p:"One of my first projects in Fusion360, the second major iteration of a tumbler lock design. This design was much more compact, with a smaller volume and smoother operation. It still did not use fasteners, instead opting for mechanical features that would constrain components' movement, as well as a compliant mechanism latch as the lid.", image:"images/lock-2.png", fill:true},
     {h:"Third Design", p:"An unfinished prototype of an entirely custom lock design, meant to be much more secure than normal locks by not allowing the key to interact with the pins while unlocking. Was ultimately intended to have a complex mechanism to 'lock' the pins in place whiel rotating the core, allowing the combination to be tested away from the key. This proved to be too ambitious for my skill set at the time, and my interest was captivated by other projects, although I may return to it at a later date.", image:"images/lock-3.png", fill:true}
   ]}},
+
+{ slug:"engine-assembly", type:"personal", kind:"personal", year:"2025",
+  title:"Engine Assembly", outcome:"58 components, fully constrained to move realistically.",
+  summary:"A SolidWorks engine assembly built from class engineering drawings.",
+  image:"images/engine.png", role:"Designer", tools:"SolidWorks",
+  what:"[Engine type, key mates. Add an exploded view and a short motion clip.]"},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
 { slug:"example", draft:true, type:"flagship", kind:"personal", year:"2026", title:"Template example",
