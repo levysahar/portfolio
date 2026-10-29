@@ -85,17 +85,17 @@ const PROJECTS = [
   summary:"A realistic mechanical hand driven by servo-actuated tendons.",
   image:"images/hand.jpg", role:"Sole engineer", tools:"Arduino, Python, Fusion 360, 3D Printer",
   stats:{"3D-printed components":"In Progress", "Total components":"In Progress"},
-  /*problem: {h:"The motivation", bullets:false,  text:"In Progress"},
+  problem: {h:"The motivation", bullets:false,  text:"I wanted to tackle a complex robotics project, and after seeing some other makers make their own robotic hands, and reading some research papers on the issue, I was inspired to make one myself."},
   contribution:{h:"The goal", bullets:true, text:["A primarily 3D printed analog of a human hand with realistic joints and degrees of freedom", "Servos actuating multiple tendon-like cables per finger", "Controlled either through a digital GUI or by emulating a worn glove"]},
-  process:[
+  /*process:[
    {h:"Inital 1-finger design",p:"temporary",image:"images/hand-finger.jpg"},
    {h:"Initial software and GUI",p:"temporary",image:"images/hand-gui.jpg"},
    {h:"5 finger integration and wrist design",p:"temporary",image:"images/hand-wrist.jpg"},
    {h:"Input glove",p:"temporary",image:"images/hand-glove.jpg"}],
   analysis:"temporary",
-  result:"temporary", change:"temporary",
+  result:"temporary", change:"temporary",*/
   gallery:["images/hand-1.jpg","images/hand-2.jpg"],
-  drops:[{h:"Parts list",table:[["Part","Qty"]]}]*/},
+  },
 
 { slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
   title:"Liquid Rocket Lab", outcome:"Material testing of 3D printed metal parts",
@@ -103,10 +103,11 @@ const PROJECTS = [
   image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, total ~60",
   problem:"Previous years had failed to replicate the published material properties, making their use in rocket systems impossible",
   contribution:["Model testing samples and develop procedures adherent to ASTM specifications."],
-  process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
+  //process:[{h:"[Layup and infusion]",p:"[What you did and why.]",image:"images/lrl-1.jpg"},{h:"[Machining and assembly]",p:"[What you did and why.]",image:"images/lrl-2.jpg"}],
   result:"[Twice yearly reports with presentations to sponsors.]",
   gallery:["images/lrl-3.jpg","images/lrl-4.jpg"],
-  drops:[{h:"Sponsors",p:"Team sponsored by "}]},
+  //drops:[{h:"Sponsors",p:"Team sponsored by "}]
+  },
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
@@ -124,7 +125,7 @@ const PROJECTS = [
 { slug:"lock-projects", type:"personal", kind:"personal", year:"2025",
   title:"Tumbler Locks", outcome:"Several tumbler lock variants, each with a different mechanism.",
   summary:"Multiple versions of tumbler locks designed in different ways.",
-  image:{src:"images/lock-2.png", zoom:0.9}, role:"Designer", tools:"TinkerCAD, Fusion360, 3D printer",
+  image:{src:"images/lock-2.png", zoom:0.9}, role:"Designer", tools:"TinkerCAD, Fusion360, 3D printing",
   process:{h:"Iterations", text:[
     {h:"First Design", p:"The very first design, made for a high school makerspace class final project. Made using simple shapes, entirely 3D printed with no fasteners. This design was functional, but clunky and awkward to assemble and use, with large errors in tolerancing. The use of TinkerCAD software was a major limitation, but this version kickstarted my interest in CAD, and led to several more iterations in more complex softwares.", image:"images/lock-1.png", fill:true},
     {h:"Second Design", p:"One of my first projects in Fusion360, the second major iteration of a tumbler lock design. This design was much more compact, with a smaller volume and smoother operation. It still did not use fasteners, instead opting for mechanical features that would constrain components' movement, as well as a compliant mechanism latch as the lid.", image:"images/lock-2.png", fill:true},
@@ -135,7 +136,7 @@ const PROJECTS = [
   title:"Engine Assembly", outcome:"58 components, fully constrained to move realistically.",
   summary:"A SolidWorks engine assembly built from class engineering drawings.",
   image:"images/engine.png", role:"Designer", tools:"SolidWorks",
-  what:"[Engine type, key mates. Add an exploded view and a short motion clip.]"},
+  what:"[Engine type, key mates. Exploded view and short motion clip.]"},
 
 /* Live demo of every feature. Hidden from lists; open project.html?p=example. Delete when done. */
 { slug:"example", draft:true, type:"flagship", kind:"personal", year:"2026", title:"Template example",
@@ -151,7 +152,7 @@ const PROJECTS = [
 
 /* Fabrication page: one block per process. */
 const FAB = [
- {h:"Casting and molding", t:"Lost-wax bronze casting(more detail in ring project), silicone molds, and urethane casting.", images:["images/lego.jpg", "images/wax.jpg"]},
+ {h:"Casting and molding", t:"Lost-wax bronze casting(more detail in ring project), silicone molds, and urethane casting.", images:["images/wax.jpg", "images/lego.jpg"]},
  {h:"Machining", t:"Manual mill, lathe, and CNC-machined foam for a SkillsUSA competition piece that qualified our team for state.", images:["images/mill.jpg", "images/lathe.jpg"]},
  {h:"Forming and finishing", t:"Vacuum forming, precise foam sculpting, and airbrushing with effect paints.", images:[{src: "images/sphere.jpg", zoom:0.8}, "images/paint.jpg"]},
  {h:"Assembly and craft", t:"Steel scale-model kits with hundreds of parts, and a modified jewelry box with a velvet insert.", images:["images/metal-earth.jpg", "images/box.jpg"]}
