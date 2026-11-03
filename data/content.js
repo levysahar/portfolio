@@ -97,7 +97,7 @@ const PROJECTS = [
   gallery:["images/hand-1.jpg","images/hand-2.jpg"],
   },
 
-{ slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
+/*{ slug:"lrl", type:"team", kind:"team", featured:true, year:"2026-present",
   title:"Liquid Rocket Lab", outcome:"Material testing of 3D printed metal parts",
   summary:"Printing and then verifying material properties of metal 3D printed parts, with the eventual goal of integration into launch vehicles and rocket engines",
   image:{src:"images/lrl.jpg", ratio:"1/1", w:"75%"}, hero:{w:"60%"}, role:"Additive Manufacturing Project", tools:"Markforged Metal X ecosystem, tensile tester, Fusion360", team:"5, total ~60",
@@ -107,7 +107,7 @@ const PROJECTS = [
   result:"[Twice yearly reports with presentations to sponsors.]",
   gallery:["images/lrl-3.jpg","images/lrl-4.jpg"],
   //drops:[{h:"Sponsors",p:"Team sponsored by "}]
-  },
+  },*/
 
 { slug:"ring-casting", type:"personal", kind:"personal", featured:true, year:"2025",
   title:"Ring Making and Casting", outcome:"Resin-printed pattern cast in bronze and hand finished.",
