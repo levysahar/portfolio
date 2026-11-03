@@ -1,16 +1,19 @@
 /* SITE.layout sizes become CSS variables (see docs/GUIDE.md) */
-const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--step-min',L.stepMin],['--fab-cols',L.fabCols],['--step-text',L.stepText]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
+const L=SITE.layout||{};[['--card-min',L.cardMin],['--gal-min',L.galleryMin],['--step-img',L.stepImage],['--page-w',L.pageWidth],['--fab-cols',L.fabCols],['--step-text',L.stepText]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
 const q=new URLSearchParams(location.search), page=document.body.dataset.page;
 /* default aspect ratios (width/height); override per image, see docs/GUIDE.md */
 const D=Object.assign({home:'4/3',card:'4/3',hero:'16/9',step:'4/3',gallery:'4/3'},SITE.imageDefaults);
 const sz=o=>o&&o.w?`width:100%;max-width:${o.w};${o.align==='left'?'margin-right':o.align==='right'?'margin-left':'margin-inline'}:auto;`:'';
 /* Fixed page text. Override any of these in SITE.labels (see docs/GUIDE.md). */
 const T=Object.assign({more:"More detail",navWork:"Work",navFab:"Fabrication",navAbout:"About",navResume:"Resume",featured:"Featured projects",seeAll:"See all projects",skills:"What I do",work:"Work",chipAll:"All",chipTeam:"Team",chipPersonal:"Personal",back:"All work",prev:"Previous",next:"Next",role:"Role",timeline:"Timeline",tools:"Tools",team:"Team",gallery:"Gallery",drops:"Details and files",fab:"Fabrication",fabIntro:"Hands-on process experience from three design, model making, and rapid prototyping classes, plus personal work.",about:"About",education:"Education",activities:"Teams and activities",awards:"Awards",contact:"Contact",resume:"Resume",download:"Download PDF"},SITE.labels);
+/* Photos in images/ have WebP copies at 480/960/1600/2400 px (images/_opt/, made at deploy time by tools/make-variants.py); the original is the fallback */
+const OPT=/^images\/.+\.(jpe?g|png|webp)$/i,O=(s,w)=>OPT.test(s)?s.replace(/^images\//,'images/_opt/').replace(/\.\w+$/,'')+'-'+w+'.webp':s,SS=s=>OPT.test(s)?[480,960,1600,2400].map(w=>O(s,w)+' '+w+'w').join(', '):'';
+function imgErr(i){if(i.dataset.o&&i.dataset.full!==i.dataset.orig){i.dataset.o='';i.removeAttribute('srcset');i.src=i.dataset.orig}else i.remove()}
 const fig=(s,alt,r,st)=>{
  if(Array.isArray(s))return `<div class="multi${(st??L.stack)?' stack':''}">${s.map(x=>fig(x,alt,r)).join('')}</div>`;
  if(s&&s.model)return `<figure class="ph" style="aspect-ratio:${s.ratio||r};${sz(s)}"><model-viewer src="${s.model}" ${s.poster?`poster="${s.poster}" `:''}alt="${s.alt||alt}" camera-controls auto-rotate shadow-intensity="1" ${s.attrs||''}></model-viewer></figure>`;
  const o=typeof s==='string'?{src:s}:(s||{}),x=o.x??50,y=o.y??50;
- return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}${o.src?`background:${o.bg||'transparent'};`:''}">${o.src?`<img src="${o.src}" alt="${o.alt||alt}" loading="lazy" data-x="${x}" data-y="${y}" data-z="${o.zoom||1}" data-dx="${o.dx||0}" data-dy="${o.dy||0}" data-fit="${o.fit||'cover'}" onload="fitImg(this)" onerror="this.remove()">`:''}</figure>`};
+ return `<figure class="ph" style="aspect-ratio:${o.ratio||r};${sz(o)}${o.src?`background:${o.bg||'transparent'};`:''}">${o.src?`<img src="${O(o.src,1600)}" srcset="${SS(o.src)}" sizes="(max-width:760px) 100vw, 900px" data-o="1" data-orig="${o.src}" data-full="${O(o.src,2400)}" alt="${o.alt||alt}" loading="lazy" data-x="${x}" data-y="${y}" data-z="${o.zoom||1}" data-dx="${o.dx||0}" data-dy="${o.dy||0}" data-fit="${o.fit||'cover'}" onload="fitImg(this)" onerror="imgErr(this)">`:''}</figure>`};
 /* thumb / hero inherit from image: give only the keys that differ, e.g. thumb:{ratio:"1/1",dx:5} */
 const pick=(p,k)=>{const b=typeof p.image==='string'?{src:p.image}:p.image,v=p[k];return v===undefined?p.image:typeof v==='object'&&!Array.isArray(v)&&!v.src&&!v.model?Object.assign({},b,v):v};
 const card=p=>`<a class="card" href="project.html?p=${p.slug}">${fig(pick(p,'thumb'),p.title,D.card)}<h3>${p.title}</h3>${p.outcome?`<p>${p.outcome}</p>`:''}${p.tools?`<span>${p.tools}</span>`:''}${p.year?`<span>${p.year}</span>`:''}</a>`;
@@ -21,11 +24,17 @@ document.getElementById('hd').innerHTML=`<div class="wrap"><a class="brand" href
 document.getElementById('ft').innerHTML=`<div class="wrap"><a href="mailto:${SITE.email}">${SITE.email}</a><a href="${SITE.linkedin}">LinkedIn</a><a href="resume.html">${T.resume}</a></div>`;
 
 /* Project templates: which fields show, in order, and their headings. Edit or add your own. */
-const TPL={
- flagship:[["problem","The problem"],["contribution","My contribution"],["process","Design process"],["analysis","Analysis and testing"],["result","Result"],["change","What I would change"]],
- team:[["problem","The problem"],["contribution","My contribution"],["process","How we built it"],["result","Result"],["change","What I would change"]],
- personal:[["what","What it does"],["specs","Key specs"],["process","Process"],["how","How it works"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]]};
-const step=(s,i)=>`<div class="step${i%2?' r':''}${(s.fill??L.stepFill)?' fill':''}"${(s.height??L.stepHeight)?` data-h="${parseFloat(s.height??L.stepHeight)}"`:''}${(s.grow??L.stepGrow)?` data-g="${parseFloat(s.grow??L.stepGrow)}"`:''}><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
+/* One template for every project: these sections, in this order. A field you leave out (or leave empty) is skipped, so add or remove sections freely.
+   Rename a heading here for all projects, or per project with titles:{contribution:"..."}. */
+const SEC=[["problem","The problem"],["what","What it does"],["specs","Key specs"],["contribution","My contribution"],["process","Process"],["analysis","Analysis and testing"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]];
+const has=v=>Array.isArray(v)?v.length>0:v&&typeof v==='object'?has(v.text):!!v;
+const val=(p,k)=>k==='process'?(Array.isArray(p.process)&&Array.isArray(p.how)?p.process.concat(p.how):p.process??p.how):p[k];   // "how" is the old name for "process"
+const kindOf=p=>p.kind||(['team','personal'].includes(p.type)?p.type:'');                                                      // "type" is team or personal ("kind" is the old name)
+/* One sizing setting for step images: size:"text" (as tall as the text), size:1.25 (25% taller), size:"600px" (fixed).
+   Older names still work: fill:true = "text", grow = number, height = pixels. Step settings beat layout.stepSize/stepFill/stepGrow/stepHeight. */
+const sizeAttr=s=>{let v=s.size??s.height??s.grow??(s.fill?1:undefined);if(v===undefined&&s.fill!==false&&!(s.size===false))v=L.stepSize??L.stepHeight??L.stepGrow??(L.stepFill?1:undefined);
+ if(v===undefined||v===false)return'';if(v==='text')v=1;const px=typeof v==='string'&&/px$/.test(v)||typeof v==='number'&&v>=20;return` data-${px?'h':'g'}="${parseFloat(v)}"`};
+const step=(s,i)=>`<div class="step${i%2?' r':''}"${sizeAttr(s)}><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
 const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
 const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step,o.stack):''}</section>`};
 const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step,d.stack):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
@@ -38,7 +47,7 @@ home:()=>{document.title=SITE.name+' - Portfolio';
 
 work:()=>{const k=q.get('k'),f=[[T.chipAll,''],[T.chipTeam,'team'],[T.chipPersonal,'personal']];
  document.title='Work - '+SITE.name;
- return `<section class="wrap sec"><h1>${T.work}</h1><nav class="chips" aria-label="Filter">${f.map(x=>`<a href="work.html${x[1]?'?k='+x[1]:''}"${(k||'')===x[1]?' aria-current="true"':''}>${x[0]}</a>`).join('')}</nav><div class="grid">${PROJECTS.filter(p=>!p.draft&&(!k||p.kind===k)).map(card).join('')}</div></section>`},
+ return `<section class="wrap sec"><h1>${T.work}</h1><nav class="chips" aria-label="Filter">${f.map(x=>`<a href="work.html${x[1]?'?k='+x[1]:''}"${(k||'')===x[1]?' aria-current="true"':''}>${x[0]}</a>`).join('')}</nav><div class="grid">${PROJECTS.filter(p=>!p.draft&&(!k||kindOf(p)===k)).map(card).join('')}</div></section>`},
 
 project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.get('p'))||L[0],i=L.indexOf(p),pv=L[i-1],nx=L[i+1];
  document.title=p.title+' - '+SITE.name;
@@ -46,9 +55,9 @@ project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.
  return `<article class="wrap wx sec"><a class="back" href="work.html">${T.back}</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${fig(pick(p,'hero'),p.title,D.hero)}
  <dl class="tb">${cells.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl>
  ${p.status?`<p><span class="status">${p.status}</span></p>`:''}
- ${(TPL[p.type]||[]).filter(t=>p[t[0]]).map(t=>sec((p.titles||{})[t[0]]||t[1],p[t[0]])).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
- ${p.gallery?`<section class="blk full"><h2>${(p.titles||{}).gallery||T.gallery}</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
- ${p.drops?`<section class="blk full"><h2>${(p.titles||{}).drops||T.drops}</h2>${p.drops.map(drop).join('')}</section>`:''}
+ ${SEC.filter(t=>has(val(p,t[0]))).map(t=>sec((p.titles||{})[t[0]]||t[1],val(p,t[0]))).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
+ ${has(p.gallery)?`<section class="blk full"><h2>${(p.titles||{}).gallery||T.gallery}</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
+ ${has(p.drops)?`<section class="blk full"><h2>${(p.titles||{}).drops||T.drops}</h2>${p.drops.map(drop).join('')}</section>`:''}
  <div class="pn">${pv?`<a class="btn" href="project.html?p=${pv.slug}">${T.prev}: ${pv.title}</a>`:'<span></span>'}${nx?`<a class="btn pri" href="project.html?p=${nx.slug}">${T.next}: ${nx.title}</a>`:'<span></span>'}</div></article>`},
 
 fab:()=>{document.title='Fabrication - '+SITE.name;
@@ -66,7 +75,7 @@ if(document.querySelector('model-viewer')){const s=document.createElement('scrip
 /* fill / height: size a step's image (or a stack of images) to the text height, or to a set height, keeping every ratio.
    One image: width = height x ratio. Stacked images: equal widths, heights add up to the target. Width is capped by layout.stepMax. */
 function fitSteps(){const mx=parseFloat(L.stepMax||65)/100,mn=parseFloat(L.stepMin||260);
- document.querySelectorAll('.step.fill,.step[data-h],.step[data-g]').forEach(st=>{const t=st.children[0],f=st.children[1],multi=f&&f.classList.contains('multi');
+ document.querySelectorAll('.step[data-h],.step[data-g]').forEach(st=>{const t=st.children[0],f=st.children[1],multi=f&&f.classList.contains('multi');
   if(innerWidth<=760||!f||(multi&&!f.classList.contains('stack'))){st.style.gridTemplateColumns='';return}
   const figs=multi?[...f.children]:[f],rs=figs.map(x=>{const p=(x.style.aspectRatio||'').split('/').map(Number);return p[1]?p[0]/p[1]:0});
   if(!rs.length||rs.some(x=>!x)){st.style.gridTemplateColumns='';return}
@@ -81,7 +90,7 @@ function fitImg(i){const f=i.parentNode,p=(f.style.aspectRatio||'').split('/').m
  Object.assign(i.style,{inset:'auto',objectFit:'fill',width:W+'%',height:H+'%',left:(100-W)*d.x/100+'%',top:(100-H)*d.y/100+'%',transform:`translate(${(+d.dx||0)/W*100}%,${(+d.dy||0)/H*100}%)`})}
 document.querySelectorAll('.ph img').forEach(i=>i.complete&&i.naturalWidth&&fitImg(i));
 /* Lightbox: click any project or blog image to enlarge (Esc or click to close) */
-document.addEventListener('click',e=>{const i=e.target.closest('.ph img,.b-img img');if(!i||i.closest('a'))return;const o=document.createElement('div');o.className='lb';o.innerHTML=`<img src="${i.dataset.full||i.src}" alt="${i.alt||''}"><button aria-label="Close">&times;</button>`;o.onclick=()=>o.remove();document.body.append(o)});
+document.addEventListener('click',e=>{const i=e.target.closest('.ph img,.b-img img');if(!i||i.closest('a'))return;const o=document.createElement('div');o.className='lb';o.innerHTML=`<img src="${i.dataset.full||i.src}" alt="${i.alt||''}" onerror="this.onerror=null;this.src='${i.dataset.orig||i.src}'"><button aria-label="Close">&times;</button>`;o.onclick=()=>o.remove();document.body.append(o)});
 addEventListener('keydown',e=>{if(e.key==='Escape'){const l=document.querySelector('.lb');l&&l.remove()}});
 /* "More detail" button: shown on a project page when blog/posts.json has a published post for it */
 if(page==='project'){fetch('blog/posts.json').then(r=>r.json()).then(L=>{const k=q.get('p'),l=document.querySelector('.lede');if(l&&L.some(x=>x.project===k&&!x.draft))l.insertAdjacentHTML('afterend',`<p><a class="btn pri" href="blog.html?p=${k}">${T.more}</a></p>`)}).catch(()=>{})}

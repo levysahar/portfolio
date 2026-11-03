@@ -1,10 +1,1 @@
-[{"project":"enigma-replica","date":"2026-11-02","title":"Pawl finally clears the wheel","draft":false,
-  "blocks":[
-   {"t":"p","x":"Short update. <b>HTML</b> and <img class=\"b-inline\" src=\"images/icon.png\"> inline images work in text."},
-   {"t":"h","x":"What changed"},
-   {"t":"list","items":["Moved the pivot 2 mm","Reprinted the pawl"]},
-   {"t":"img","src":"images/enigma-rotor.jpg","layout":"left","w":"40%","caption":"New pawl","alt":"Pawl"},
-   {"t":"p","x":"Text flows around a left or right image and wraps back under it."},
-   {"t":"img","src":"images/enigma-input.jpg","layout":"break","w":"70%","align":"center"},
-   {"t":"video","url":"https://www.youtube.com/embed/VIDEO_ID"},
-   {"t":"model","src":"models/rotor.glb","w":"80%"}]}]
+[]

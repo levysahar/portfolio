@@ -4,7 +4,7 @@
  let L=[];try{L=await (await fetch('blog/posts.json')).json()}catch(e){}
  const P=L.filter(x=>x.project===k&&!x.draft).sort((a,b)=>b.date.localeCompare(a.date));
  const B={p:x=>`<p>${x.x}</p>`,h:x=>`<h3 class="b-h">${x.x}</h3>`,list:x=>`<ul>${x.items.map(i=>`<li>${i}</li>`).join('')}</ul>`,
-  img:x=>`<figure class="b-img ${x.layout||'break'} a-${x.align||'left'}" style="--w:${x.w||(x.layout==='left'||x.layout==='right'?'40%':'100%')}"><img src="${x.src}" alt="${x.alt||''}" loading="lazy">${x.caption?`<figcaption>${x.caption}</figcaption>`:''}</figure>`,
+  img:x=>`<figure class="b-img ${x.layout||'break'} a-${x.align||'left'}" style="--w:${x.w||(x.layout==='left'||x.layout==='right'?'40%':'100%')}"><img src="${O(x.src,1600)}" srcset="${SS(x.src)}" sizes="(max-width:760px) 100vw, 900px" data-o="1" data-orig="${x.src}" data-full="${O(x.src,2400)}" alt="${x.alt||''}" loading="lazy" onerror="imgErr(this)">${x.caption?`<figcaption>${x.caption}</figcaption>`:''}</figure>`,
   video:x=>`<div class="b-vid" style="--w:${x.w||'100%'}"><iframe src="${x.url}" allowfullscreen></iframe></div>`,
   model:x=>`<div class="b-mod" style="--w:${x.w||'100%'}"><model-viewer src="${x.src}" camera-controls auto-rotate shadow-intensity="1"></model-viewer></div>`};
  document.title=(pr?pr.title+' - ':'')+'Build log - '+SITE.name;

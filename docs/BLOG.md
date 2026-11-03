@@ -31,3 +31,12 @@ python tools/compress-images.py images                       # dry run, changes 
 python tools/compress-images.py images --apply --backup ../portfolio-originals
 ```
 Keeps names and formats, shrinks to 3000 px on the long side (`--max`), quality 82 (`--quality`), fixes rotation, strips location data. Run on a branch. Git history still holds the old versions, so the repository itself does not get smaller.
+
+## Editor: `admin.html`
+Open `https://levysahar.github.io/portfolio/admin.html` on any device.
+1. **Token (once per device):** GitHub, Settings, Developer settings, Fine-grained tokens, Generate. Limit it to this repository, permission **Contents: Read and write**. Paste it into the editor. It is stored only in that browser; never put it in the repo. Anyone can open the page, but nobody can save without a token.
+2. **Posts:** the list shows every post (newest first). **New post**, **Edit**, and **Delete** (asks first; recoverable from GitHub history). New posts start as drafts: untick Draft to publish.
+3. **Blocks:** add paragraphs (bold, italic, link buttons), headings, lists, images, video links, and 3D models; reorder or remove with the arrows and ×.
+4. **Images:** upload from your camera roll or computer. They are shrunk to 2400 px (JPEG) in the browser before upload, so phone uploads stay small. Pick the layout (break, left, right), width, alignment, caption, and alt text.
+5. **Models:** upload a `.glb` (keep under about 10 MB; 25 MB is the web limit). **Video:** paste a YouTube or Vimeo link (large video files do not belong in the repo).
+6. **Saving** commits to GitHub. The change goes live in 1-2 minutes. If the file changed elsewhere, the editor tells you to reload.
