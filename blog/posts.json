@@ -24,6 +24,9 @@
     "x": "After soldering all 26 wires to their copper contacts, I labeled each wire, specifically counterclockwise from the top, to match the next steps, which required each wire to go to a specific output pin."
    },
    {
+    "t": "h"
+   },
+   {
     "t": "img",
     "ratio": "4/3",
     "src": "images/blog/1793763003853-20261031_150759.jpg",
@@ -53,9 +56,9 @@
     "t": "img",
     "ratio": "4/3",
     "src": "images/blog/1793763037774-20261101_130505.jpg",
-    "y": 71,
-    "zoom": 1.18,
-    "x": 58,
+    "y": 66,
+    "zoom": 1.03,
+    "x": 100,
     "layout": "right"
    },
    {
@@ -66,7 +69,7 @@
     "t": "img",
     "src": "images/blog/1793763088333-20261101_150216.jpg",
     "ratio": "4/3",
-    "zoom": 1,
+    "zoom": 0.73,
     "y": 42,
     "x": 100,
     "w": "60%"
@@ -75,7 +78,7 @@
     "t": "img",
     "src": "images/blog/1793763092903-20261101_152545.jpg",
     "ratio": "4/3",
-    "zoom": 2.27,
+    "zoom": 1.55,
     "x": 56,
     "y": 39,
     "w": "60%"
