@@ -1,0 +1,63 @@
+name: Deploy site
+on:
+  push: {branches: [main]}
+  workflow_dispatch: {}
+permissions: {contents: read, pages: write, id-token: write}
+concurrency: {group: pages, cancel-in-progress: true}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pillow
+      - run: python tools/make-variants.py . _site
+      - name: Compress 3D models (skipped if none; never blocks the deploy)
+        continue-on-error: true
+        run: |
+          ls _site/models/*.glb >/dev/null 2>&1 || exit 0
+          npm install --global @gltf-transform/cli
+          for f in _site/models/*.glb; do gltf-transform optimize "$f" "$f" --compress draco --texture-compress webp --texture-size 1024 || true; done
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: _site}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4name: Deploy site
+on:
+  push: {branches: [main]}
+  workflow_dispatch: {}
+permissions: {contents: read, pages: write, id-token: write}
+concurrency: {group: pages, cancel-in-progress: true}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pillow
+      - run: python tools/make-variants.py . _site
+      - name: Compress 3D models (skipped if none; never blocks the deploy)
+        continue-on-error: true
+        run: |
+          ls _site/models/*.glb >/dev/null 2>&1 || exit 0
+          npm install --global @gltf-transform/cli
+          for f in _site/models/*.glb; do gltf-transform optimize "$f" "$f" --compress draco --texture-compress webp --texture-size 1024 || true; done
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: _site}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
