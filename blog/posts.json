@@ -1,23 +1,22 @@
 [
  {
   "project": "enigma-replica",
-  "date": "2026-11-04",
-  "title": "test",
+  "date": "2026-11-01",
+  "title": "First Rotor Wiring",
   "draft": true,
   "blocks": [
    {
+    "t": "p"
+   },
+   {
     "t": "img",
-    "src": "images/blog/1793760446675-20261031_134827.jpg",
-    "ratio": "4/3",
-    "y": 75,
-    "zoom": 1.05,
-    "x": 0
+    "w": "40%"
    },
    {
-    "t": "h"
-   },
-   {
-    "t": "list"
+    "t": "img",
+    "align": "right",
+    "w": "40%",
+    "src": "images/blog/1793760539431-20261031_134827.jpg"
    }
   ]
  }
