@@ -3,7 +3,7 @@
   "project": "enigma-replica",
   "date": "2026-11-01",
   "title": "First Rotor Wiring",
-  "draft": true,
+  "draft": false,
   "blocks": [
    {
     "t": "p",
