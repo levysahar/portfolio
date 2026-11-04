@@ -76,7 +76,7 @@
     "y": 42,
     "x": 100,
     "w": "60%",
-    "layout": "right"
+    "layout": "left"
    },
    {
     "t": "img",
