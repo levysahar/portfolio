@@ -63,7 +63,7 @@ const blobs={},opt=s=>/^images\/.+\.(jpe?g|png|webp)$/i.test(s)?s.replace(/^imag
 function pvErr(im){if(im.dataset.t)return;im.dataset.t=1;im.src=im.dataset.o}
 function IMGFORM(b,i){const on=!!b.ratio,num=(k,ph)=>`<input data-i="${i}" data-k="${k}" type="number" step="any" placeholder="${ph}" value="${b[k]??''}">`;
  return `<input type="file" accept="image/*" onchange="pick(${i},this,'images/blog')">
- <div class="two"><label>Layout ${sel(i,'layout',b.layout||'break',['break','left','right'])}</label><label>Align (break) ${sel(i,'align',b.align||'left',['left','center','right'])}</label></div>
+ <div class="two"><label>Layout ${sel(i,'layout',b.layout||'break',['break','left','right','side'])}</label><label>Align (break) ${sel(i,'align',b.align||'left',['left','center','right'])}</label></div>
  <div class="two"><input data-i="${i}" data-k="w" placeholder="Width, e.g. 40% or 400px" value="${esc(b.w)}"><input data-i="${i}" data-k="caption" placeholder="Caption" value="${esc(b.caption)}"></div><input data-i="${i}" data-k="alt" placeholder="Alt text" value="${esc(b.alt)}">
  <label><input type="checkbox" style="width:auto"${on?' checked':''} onchange="frameOn(${i},this.checked)"> Crop, position and zoom</label>
  ${on&&b.src?`<div class="fr" data-fr="${i}" id="fr${i}"><img id="pv${i}" src="${esc(pv(b.src))}" data-o="${esc(b.src)}" onload="place(${i})" onerror="pvErr(this)" draggable="false"></div><small>Drag to move. Scroll or use the slider to zoom.</small><input type="range" min="0.5" max="3" step="0.05" value="${b.zoom||1}" oninput="zoomTo(${i},this.value)">`:''}
