@@ -90,3 +90,4 @@ model-viewer{position:absolute;inset:0;z-index:1;width:100%;height:100%;backgrou
 @media(max-width:760px){.b-img.left,.b-img.right{float:none;width:var(--w,100%);margin:14px 0}}
 .b-fr{position:relative;overflow:hidden}.b-fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .b-img.left{clear:left}.b-img.right{clear:right}
+.tops{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0 0 18px}.tops:empty{display:none}.tops .btn{margin:0}
