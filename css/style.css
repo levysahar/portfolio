@@ -89,3 +89,4 @@ model-viewer{position:absolute;inset:0;z-index:1;width:100%;height:100%;backgrou
 .b-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media(max-width:760px){.b-img.left,.b-img.right{float:none;width:var(--w,100%);margin:14px 0}}
 .b-fr{position:relative;overflow:hidden}.b-fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b-img.left{clear:left}.b-img.right{clear:right}
