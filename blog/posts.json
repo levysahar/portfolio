@@ -53,6 +53,9 @@
     "x": "After attaching pogo pins to each wire, I had to carefully insert them in the correct order into the opposing pin plate. To do this I followed the real wiring connections of the Enigma machine, carefully placing each pogo pin in the correct hole, and then super-gluing it in place."
    },
    {
+    "t": "h"
+   },
+   {
     "t": "img",
     "ratio": "4/3",
     "src": "images/blog/1793763037774-20261101_130505.jpg",
@@ -60,9 +63,6 @@
     "zoom": 1.03,
     "x": 100,
     "layout": "right"
-   },
-   {
-    "t": "h"
    },
    {
     "t": "p",
@@ -75,7 +75,8 @@
     "zoom": 0.69,
     "y": 42,
     "x": 100,
-    "w": "60%"
+    "w": "60%",
+    "layout": "right"
    },
    {
     "t": "img",
@@ -84,7 +85,8 @@
     "zoom": 1.93,
     "x": 58,
     "y": 39,
-    "w": "60%"
+    "w": "60%",
+    "layout": "left"
    }
   ]
  }
