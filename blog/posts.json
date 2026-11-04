@@ -7,7 +7,7 @@
   "blocks": [
    {
     "t": "p",
-    "x": "asdasfwerfsadf"
+    "x": "The first part of the assembly/fabrication process that I wanted to get done was the rotor wiring, for two reasons:\n1. The rotor CAD was the least likely part to undergo further changes\n2. This is the part I was most unsure about, and with the most possible issues\n\nThe first issue I encountered was getting the wires to connect to the copper contacts, likely caused by their enamel coating and thin gauge. The fix for this was tinning the copper wire at each end, a total of 52 times.\n\nThe second issue was because I was soldering onto copper housed in a thermoplastic. I thought of this during the CAD stage, but initially thought that I could just solder quickly, or at a low temperature, but neither of these worked. Eventually, what worked was placing the housing flush on a metal plate, so that even when the plastic melts, there is nowhere for the copper to go.\n"
    },
    {
     "t": "img",
@@ -15,12 +15,13 @@
     "src": "images/blog/1793762863693-20261031_134827.jpg",
     "layout": "right",
     "ratio": "4/3",
-    "y": 83,
+    "y": 90,
     "zoom": 1.06,
     "x": 100
    },
    {
-    "t": "p"
+    "t": "p",
+    "x": "After soldering all 26 wires to their copper contacts, I labeled each wire, specifically counterclockwise from the top, to match the next steps, which required each wire to go to a specific output pin."
    },
    {
     "t": "img",
@@ -31,7 +32,8 @@
     "y": 65
    },
    {
-    "t": "p"
+    "t": "p",
+    "x": "The next step, and potentially the most challenging portion, was soldering the end of each wire to a pogo pin. The challenge with this was that all of the faces of the pogo pins were used to position and seat it, so the solder could only lie on the very top. I had to be careful not to break the surface tension of the solder, or it would attach itself to the sides as well. Out of 26 pins, this happened to 6 of them, also I improved over time, so I think it is still feasible."
    },
    {
     "t": "img",
@@ -42,7 +44,8 @@
     "y": 43
    },
    {
-    "t": "p"
+    "t": "p",
+    "x": "After attaching pogo pins to each wire, I had to carefully insert them in the correct order into the opposing pin plate. To do this I followed the real wiring connections of the Enigma machine, carefully placing each pogo pin in the correct hole, and then super-gluing it in place."
    },
    {
     "t": "img",
@@ -53,7 +56,8 @@
     "x": 58
    },
    {
-    "t": "p"
+    "t": "p",
+    "x": "This is the rotor core disassembled, with all connections made and ready to be squished together and then screwed into it's final assembly."
    },
    {
     "t": "img",
