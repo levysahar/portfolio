@@ -27,6 +27,7 @@ document.getElementById('ft').innerHTML=`<div class="wrap"><a href="mailto:${SIT
 /* One template for every project: these sections, in this order. A field you leave out (or leave empty) is skipped, so add or remove sections freely.
    Rename a heading here for all projects, or per project with titles:{contribution:"..."}. */
 const SEC=[["problem","The problem"],["what","What it does"],["specs","Key specs"],["contribution","My contribution"],["process","Process"],["analysis","Analysis and testing"],["challenge","Challenge and fix"],["result","Result"],["change","What I would change"]];
+const h2=t=>t?`<h2>${t}</h2>`:'';
 const has=v=>Array.isArray(v)?v.length>0:v&&typeof v==='object'?has(v.text):!!v;
 const val=(p,k)=>k==='process'?(Array.isArray(p.process)&&Array.isArray(p.how)?p.process.concat(p.how):p.process??p.how):p[k];   // "how" is the old name for "process"
 const kindOf=p=>p.kind||(['team','personal'].includes(p.type)?p.type:'');                                                      // "type" is team or personal ("kind" is the old name)
@@ -34,10 +35,10 @@ const kindOf=p=>p.kind||(['team','personal'].includes(p.type)?p.type:'');       
    Older names still work: fill:true = "text", grow = number, height = pixels. Step settings beat layout.stepSize/stepFill/stepGrow/stepHeight. */
 const sizeAttr=s=>{let v=s.size??s.height??s.grow??(s.fill?1:undefined);if(v===undefined&&s.fill!==false&&!(s.size===false))v=L.stepSize??L.stepHeight??L.stepGrow??(L.stepFill?1:undefined);
  if(v===undefined||v===false)return'';if(v==='text')v=1;const px=typeof v==='string'&&/px$/.test(v)||typeof v==='number'&&v>=20;return` data-${px?'h':'g'}="${parseFloat(v)}"`};
-const step=(s,i)=>`<div class="step${i%2?' r':''}"${sizeAttr(s)}><div><h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
+const step=(s,i)=>`<div class="step${i%2?' r':''}"${sizeAttr(s)}><div>${s.h?`<h3>${s.h}</h3>`:''}${s.p?`<p>${s.p}</p>`:''}${s.list?ul(s.list):''}</div>${fig(s.image,s.h,D.step,s.stack)}</div>`;
 const body=(v,b)=>!v?'':typeof v==='string'?(b?ul([v]):`<p>${v}</p>`):typeof v[0]==='string'?(b===false?v.map(t=>`<p>${t}</p>`).join(''):ul(v)):v.map(step).join('');
-const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}"><h2>${o.h||h}</h2>${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step,o.stack):''}</section>`};
-const drop=d=>`<details${d.open?' open':''}><summary>${d.h}</summary><div>${d.image?fig(d.image,d.h,D.step,d.stack):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
+const sec=(h,v)=>{const o=v&&!Array.isArray(v)&&typeof v==='object'?v:{text:v},t=o.text;return `<section class="blk${(t&&typeof t[0]==='object')||o.image?' full':''}">${(o.h??h)?`<h2>${o.h??h}</h2>`:''}${body(t,o.bullets)}${o.image?fig(o.image,o.h||h,D.step,o.stack):''}</section>`};
+const drop=d=>`<details${d.open?' open':''}><summary>${d.h??''}</summary><div>${d.image?fig(d.image,d.h,D.step,d.stack):''}${d.p?`<p>${d.p}</p>`:''}${d.list?ul(d.list):''}${d.table?`<table>${d.table.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table>`:''}${d.links?ul(d.links.map(l=>`<a href="${l[1]}" download>${l[0]}</a>`)):''}</div></details>`;
 
 const R={
 home:()=>{document.title=SITE.name+' - Portfolio';
@@ -55,13 +56,13 @@ project:()=>{const L=PROJECTS.filter(x=>!x.draft),p=PROJECTS.find(x=>x.slug===q.
  return `<article class="wrap wx sec"><a class="back" href="work.html">${T.back}</a><h1>${p.title}</h1><p class="lede">${p.summary}</p>${fig(pick(p,'hero'),p.title,D.hero)}
  <dl class="tb">${cells.map(x=>`<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl>
  ${p.status?`<p><span class="status">${p.status}</span></p>`:''}
- ${SEC.filter(t=>has(val(p,t[0]))).map(t=>sec((p.titles||{})[t[0]]||t[1],val(p,t[0]))).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
- ${has(p.gallery)?`<section class="blk full"><h2>${(p.titles||{}).gallery||T.gallery}</h2><div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
- ${has(p.drops)?`<section class="blk full"><h2>${(p.titles||{}).drops||T.drops}</h2>${p.drops.map(drop).join('')}</section>`:''}
+ ${SEC.filter(t=>has(val(p,t[0]))).map(t=>sec((p.titles||{})[t[0]]??t[1],val(p,t[0]))).join('')}${(p.extra||[]).map(e=>sec(e.h,e.v)).join('')}
+ ${has(p.gallery)?`<section class="blk full">${h2((p.titles||{}).gallery??T.gallery)}<div class="gal">${p.gallery.map(g=>fig(g,p.title,D.gallery)).join('')}</div></section>`:''}
+ ${has(p.drops)?`<section class="blk full">${h2((p.titles||{}).drops??T.drops)}${p.drops.map(drop).join('')}</section>`:''}
  <div class="pn">${pv?`<a class="btn" href="project.html?p=${pv.slug}">${T.prev}: ${pv.title}</a>`:'<span></span>'}${nx?`<a class="btn pri" href="project.html?p=${nx.slug}">${T.next}: ${nx.title}</a>`:'<span></span>'}</div></article>`},
 
 fab:()=>{document.title='Fabrication - '+SITE.name;
- return `<section class="wrap sec"><h1>${T.fab}</h1><p class="lede">${T.fabIntro}</p><div class="fabgrid">${FAB.map(f=>`<section class="blk"><h2>${f.h}</h2><p>${f.t}</p>${(f.images||[]).map(m=>fig(m,f.h,D.gallery)).join('')}</section>`).join('')}</div></section>`},
+ return `<section class="wrap sec"><h1>${T.fab}</h1><p class="lede">${T.fabIntro}</p><div class="fabgrid">${FAB.map(f=>`<section class="blk">${f.h?`<h2>${f.h}</h2>`:''}<p>${f.t}</p>${(f.images||[]).map(m=>fig(m,f.h,D.gallery)).join('')}</section>`).join('')}</div></section>`},
 
 about:()=>{const a=SITE.about;document.title='About - '+SITE.name;
  return `<section class="wrap sec"><h1>${T.about}</h1><div class="blk">${a.bio.map(t=>`<p>${t}</p>`).join('')}<h2>${T.education}</h2>${ul(a.education)}<h2>${T.activities}</h2>${ul(a.activities)}<h2>${T.awards}</h2>${ul(a.awards)}<h2>${T.contact}</h2><p><a href="mailto:${SITE.email}">${SITE.email}</a><br><a href="${SITE.linkedin}">LinkedIn</a></p></div></section>`},
