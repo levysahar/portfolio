@@ -4,6 +4,11 @@
   "date": "2026-11-04",
   "title": "test",
   "draft": true,
-  "blocks": []
+  "blocks": [
+   {
+    "t": "img",
+    "src": "images/blog/1793760410359-20261031_134827.jpg"
+   }
+  ]
  }
 ]
