@@ -91,3 +91,5 @@ model-viewer{position:absolute;inset:0;z-index:1;width:100%;height:100%;backgrou
 .b-fr{position:relative;overflow:hidden}.b-fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .b-img.left{clear:left}.b-img.right{clear:right}
 .tops{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0 0 18px}.tops:empty{display:none}.tops .btn{margin:0}
+.b-img.side{display:inline-block;vertical-align:top;width:var(--w,48%);margin:6px 1.5% 10px 0}
+@media(max-width:760px){.b-img.side{display:block;width:var(--w,100%);margin-right:0}}
