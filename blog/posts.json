@@ -3,14 +3,15 @@
   "project": "enigma-replica",
   "date": "2026-11-01",
   "title": "First Rotor Wiring",
-  "draft": true,
+  "draft": false,
   "blocks": [
    {
     "t": "p"
    },
    {
     "t": "img",
-    "w": "40%"
+    "w": "40%",
+    "src": "images/blog/1793760542777-enigma.jpg"
    },
    {
     "t": "img",
