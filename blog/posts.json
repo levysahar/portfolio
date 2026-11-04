@@ -56,10 +56,6 @@
     "t": "h"
    },
    {
-    "t": "p",
-    "x": "This is the rotor core disassembled, with all connections made and ready to be squished together and then screwed into it's final assembly."
-   },
-   {
     "t": "img",
     "ratio": "4/3",
     "src": "images/blog/1793763037774-20261101_130505.jpg",
@@ -67,6 +63,10 @@
     "zoom": 1.09,
     "x": 100,
     "layout": "right"
+   },
+   {
+    "t": "p",
+    "x": "This is the rotor core disassembled, with all connections made and ready to be squished together and then screwed into it's final assembly."
    },
    {
     "t": "h"
